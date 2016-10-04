@@ -2,46 +2,29 @@
 
 {% block body %}
     <h1>Promotion list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Logo</th>
-                <th>Nomform</th>
-                <th>Prenomform</th>
-                <th>Semaines</th>
-                <th>Datedeb</th>
-                <th>Datefin</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for promotion in promotions %}
-            <tr>
-                <td><a href="{{ path('promotion_show', { 'id': promotion.id }) }}">{{ promotion.id }}</a></td>
-                <td>{{ promotion.titre }}</td>
-                <td>{{ promotion.logo }}</td>
-                <td>{{ promotion.nomForm }}</td>
-                <td>{{ promotion.prenomForm }}</td>
-                <td>{{ promotion.semaines }}</td>
-                <td>{% if promotion.dateDeb %}{{ promotion.dateDeb|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if promotion.dateFin %}{{ promotion.dateFin|date('Y-m-d') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('promotion_show', { 'id': promotion.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="row">
+            <div class="col m12">
+                {% for promotion in promotions %}
+                    <figure>
+                        <img src="tigre.jpg" alt="Tigre" width="320" height="240" />
+                        <figcaption>
+                            <p>{{ promotion.titre }}</p>
+                            <p>{{ promotion.semaines }}semaines</p>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('promotion_show', { 'id': promotion.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
     <ul>
         <li>
