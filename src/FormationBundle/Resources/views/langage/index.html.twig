@@ -1,19 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Langage list</h1>
+    <h1>langue list</h1>
 
-    <figure>
-        <img src="tigre.jpg" alt="Tigre" width="320" height="240" />
-        <figcaption>
-            <h3>Tigre <em lang="la">(Panthera tigris)</em>.</h3>
-            <p>- zoo de Barcelone -</p>
-        </figcaption>
-    </figure>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col s6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for langage in langages %}
+                    <tr>
+                        <td><a href="{{ path('langage_show', { 'id': langage.id }) }}">{{ langage.id }}</a></td>
+                        <td>{{ langage.nom }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('langage_show', { 'id': langage.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('langage_edit', { 'id': langage.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
     <ul>
         <li>
-            <a href="{{ path('langage_new') }}">Create a new entry</a>
+            <a href="{{ path('module_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

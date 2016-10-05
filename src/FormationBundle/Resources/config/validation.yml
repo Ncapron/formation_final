@@ -3,3 +3,9 @@ FormationBundle\Entity\Promotion:
         # ...
         file:
             - Image: ~
+
+FormationBundle\Entity\Eleve:
+    properties:
+        # ...
+        file:
+            - Image: ~

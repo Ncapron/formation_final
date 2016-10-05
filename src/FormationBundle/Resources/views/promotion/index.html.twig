@@ -4,10 +4,10 @@
     <h1>Promotion list</h1>
     <div class="container">
         <div class="row">
-            <div class="col m12">
+            <div class="col s12">
                 {% for promotion in promotions %}
-                    <figure>
-                        <img src="tigre.jpg" alt="Tigre" width="320" height="240" />
+                    <figure class="figpromo">
+                        <img src="{{ asset('uploads/promotion/') }}{{ promotion.logo }}" alt="img" width="245" height="220" />
                         <figcaption>
                             <p>{{ promotion.titre }}</p>
                             <p>{{ promotion.semaines }}semaines</p>

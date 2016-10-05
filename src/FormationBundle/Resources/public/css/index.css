@@ -1,6 +1,8 @@
+
+/*Promotions et eleves cartes*/
 figure {
     float :left;
-    width : 332px;
+    width : 260px;
     display :block;
     padding : 6px;
     background : white;
@@ -31,6 +33,3 @@ img {
     border : solid 1px #444444;
 }
 
-.edit_admin{
-    text-align: center;
-}

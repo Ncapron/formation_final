@@ -16,7 +16,7 @@ class EleveType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('logo')
+            ->add('file', 'file', array('label' => ' ', 'required' => false))
             ->add('adresse')
             ->add('cp')
             ->add('ville')

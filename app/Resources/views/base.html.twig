@@ -12,7 +12,23 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+
+    <nav>
+        <div class="nav-wrapper">
+            <a class="brand-logo">Formation</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{{ path('promotion_index') }}">Promotions</a></li>
+                <li><a href="{{ path('eleve_index') }}">Eleves</a></li>
+                <li><a href="{{ path('module_index') }}">Modules</a></li>
+                <li><a href="{{ path('langage_index') }}">Languages</a></li>
+                <li><a href="{{ path('intervenant_index') }}">Intervenants</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    {% block body %}{% endblock %}
         {% block javascripts %}
 
             <script src="{{ asset('bundles/formation/js/main.js') }}"></script>

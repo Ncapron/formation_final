@@ -1,27 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Eleve</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ eleve.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ eleve.nom }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="col s12 m7">
+        <h2 class="header">Présentation de l'élève</h2>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="{{ asset('uploads/eleves/') }}{{ eleve.logo }}" alt="img" width="50" height="220" />
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Nom/Prénom  : {{ eleve.nom }}</p>
+                    <p>Date de naissance  : {{ eleve.datenaissance|date("d/m/Y") }}</p>
+                    <p>Adresse : {{ eleve.adresse }}</p>
+                    <p>Code Postal : {{ eleve.cp }}</p>
+                    <p>Ville : {{ eleve.ville }}</p>
+                    <p>Téléphone : {{ eleve.tel }}</p>
+                    <p>Mail : {{ eleve.mail }}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Edit</a>
+                    <a href="{{ path('eleve_index') }}">Back to the list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <ul>
         <li>
-            <a href="{{ path('eleve_index') }}">Back to the list</a>
+
         </li>
         <li>
-            <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

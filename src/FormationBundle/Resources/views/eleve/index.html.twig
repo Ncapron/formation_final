@@ -7,7 +7,7 @@
             <div class="col m12">
                 {% for eleve in eleves %}
                     <figure>
-                        <img src="tigre.jpg" alt="Tigre" width="320" height="240" />
+                        <img src="{{ asset('uploads/eleves/') }}{{ eleve.logo }}" alt="img" width="245" height="220" />
                         <figcaption>
                             <p>{{ eleve.nom }}</p>
                             <p>{{ eleve.tel }}</p>
@@ -28,7 +28,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('promotion_new') }}">Create a new entry</a>
+            <a href="{{ path('eleve_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

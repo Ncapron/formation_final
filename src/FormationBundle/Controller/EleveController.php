@@ -14,6 +14,8 @@ use FormationBundle\Form\EleveType;
  */
 class EleveController extends Controller
 {
+
+
     /**
      * Lists all Eleve entities.
      *
@@ -66,7 +68,6 @@ class EleveController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
     /**
      * Displays a form to edit an existing Eleve entity.
      *
@@ -79,6 +80,16 @@ class EleveController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            if ($editForm->get('file')->getData() != null) {
+
+                if($eleve->getLogo() != null){
+                    unlink(__DIR__.'/../../../web/uploads/eleves/'.$eleve->getLogo());
+                    $eleve->setLogo(null);
+                }
+            }
+            $eleve->preUpload();
+
             $em->persist($eleve);
             $em->flush();
 

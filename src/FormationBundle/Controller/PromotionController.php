@@ -79,6 +79,16 @@ class PromotionController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+        if ($editForm->get('file')->getData() != null) {
+
+            if($promotion->getLogo() != null){
+                unlink(__DIR__.'/../../../web/uploads/promotion/'.$promotion->getLogo());
+                $promotion->setLogo(null);
+            }
+        }
+            $promotion->preUpload();
+
             $em->persist($promotion);
             $em->flush();
 
