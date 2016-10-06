@@ -1,1 +1,59 @@
-Hello World!
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<table class="striped highlight">
+      <thead>
+        <tr>
+        	<th style="text-align: center;" colspan="2">module</th>
+          <th style="text-align: center;" colspan="2">4</th>
+          <th style="text-align: center;" colspan="2">5</th>
+          <th style="text-align: center;" colspan="2">6</th>
+          <th style="text-align: center;" colspan="2">7</th>
+          <th style="text-align: center;" colspan="2">8</th>
+          <th style="text-align: center;" colspan="2">9</th>
+          <th style="text-align: center;" colspan="2">10</th>
+          <th style="text-align: center;" colspan="2">11</th>
+          <th style="text-align: center;" colspan="2">12</th>
+          <th style="text-align: center;" colspan="2">13</th>
+          <th style="text-align: center;" colspan="2">14</th>
+          <th style="text-align: center;" colspan="2">15</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>numero</td>
+          <td>nom</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+        <tr>
+        {% for module in modules %}
+        	<tr>
+	        	<td>{{ module.numero }}</td>
+	        	<td>{{ module.nom }}</td>
+	        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
