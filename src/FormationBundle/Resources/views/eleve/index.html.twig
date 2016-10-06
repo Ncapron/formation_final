@@ -18,7 +18,7 @@
                     <tbody>
                     {% for eleve in eleves %}
                         <tr>
-                            <td>{{ eleve.nom }}</td>
+                            <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}"</a>{{ eleve.nom }}</td>
                             <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
                             <td>{{ eleve.tel }}</td>
                             <td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li class="button-centre">
-            <a class="btn btn-default edit_admin" href="{{ path('module_new') }}">Create a new entry</a>
+            <a class="btn btn-default edit_admin" href="{{ path('eleve_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

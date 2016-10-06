@@ -22,6 +22,15 @@ formation_archive:
     resource: "@FormationBundle/Resources/config/routing/archive.yml"
     prefix:   /archive
 
+formation_note:
+    resource: "@FormationBundle/Resources/config/routing/note.yml"
+    prefix:   /note
+
+formation_commentaire:
+    resource: "@FormationBundle/Resources/config/routing/commentaire.yml"
+    prefix:   /commentaire
+
+
 
 formation_homepage:
     path:     /

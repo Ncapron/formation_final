@@ -24,7 +24,7 @@ class CommentaireController extends Controller
 
         $commentaires = $em->getRepository('FormationBundle:Commentaire')->findAll();
 
-        return $this->render('commentaire/index.html.twig', array(
+        return $this->render('FormationBundle:commentaire:index.html.twig', array(
             'commentaires' => $commentaires,
         ));
     }
@@ -47,7 +47,7 @@ class CommentaireController extends Controller
             return $this->redirectToRoute('commentaire_show', array('id' => $commentaire->getId()));
         }
 
-        return $this->render('commentaire/new.html.twig', array(
+        return $this->render('FormationBundle:commentaire:new.html.twig', array(
             'commentaire' => $commentaire,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class CommentaireController extends Controller
     {
         $deleteForm = $this->createDeleteForm($commentaire);
 
-        return $this->render('commentaire/show.html.twig', array(
+        return $this->render('FormationBundle:commentaire:show.html.twig', array(
             'commentaire' => $commentaire,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -85,7 +85,7 @@ class CommentaireController extends Controller
             return $this->redirectToRoute('commentaire_edit', array('id' => $commentaire->getId()));
         }
 
-        return $this->render('commentaire/edit.html.twig', array(
+        return $this->render('FormationBundle:commentaire:edit.html.twig', array(
             'commentaire' => $commentaire,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

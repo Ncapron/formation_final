@@ -1,0 +1,15 @@
+FormationBundle\Entity\Note:
+    type: entity
+    table: null
+    repositoryClass: FormationBundle\Repository\NoteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        note:
+            type: string
+            length: '2'
+    lifecycleCallbacks: {  }
