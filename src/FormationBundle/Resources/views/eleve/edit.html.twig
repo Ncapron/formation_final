@@ -63,6 +63,17 @@
                         {{ form_widget(edit_form.promotion) }}
                         {{ form_errors(edit_form.promotion) }}
                     </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="checkbox">
+                                <label>
+                                    {{ form_widget(edit_form.archive) }}
+                                    {{ form_label(edit_form.archive) }}
+                                </label>
+                                {{ form_errors(edit_form.archive) }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -8,6 +8,12 @@ class ArchiveController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('FormationBundle:archive:archive.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $eleves = $em->getRepository('FormationBundle:Eleve')->findAll();
+
+        return $this->render('FormationBundle:archive:archive.html.twig', array(
+            'eleves' => $eleves,
+        ));
     }
 }

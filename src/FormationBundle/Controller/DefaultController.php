@@ -10,17 +10,17 @@ use FormationBundle\Form\ModuleType;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction($id)
     {
     	$em = $this->getDoctrine()->getManager();
 
         $modules = $em->getRepository('FormationBundle:Module')->findAll();
-        $eleves = $em->getRepository('FormationBundle:Eleve')->findAll();
+        $eleve = $em->getRepository('FormationBundle:Eleve')->findById($id);
 
 
         return $this->render('FormationBundle:Default:index.html.twig', array(
         	'modules' => $modules,
-            'eleve' => $eleves
+            'eleve' => $eleve
         	));
     }
 }

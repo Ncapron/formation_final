@@ -77,7 +77,8 @@
                     <div class="row">
                         <div class="checkbox">
                             <label>
-                                {{ form_widget(edit_form.archive) }} Archiver
+                                {{ form_widget(edit_form.archive) }}
+                                {{ form_label(edit_form.archive) }}
                             </label>
                             {{ form_errors(edit_form.archive) }}
                         </div>

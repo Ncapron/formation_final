@@ -1,1 +1,42 @@
 {% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>eleve list</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col m8 offset-m2">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Date de naissance</th>
+                        <th>tel</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for eleve in eleves %}
+                        {% if eleve.archive == true %}
+                        <tr>
+                            <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}"</a>{{ eleve.nom }}</td>
+                            <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
+                            <td>{{ eleve.tel }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

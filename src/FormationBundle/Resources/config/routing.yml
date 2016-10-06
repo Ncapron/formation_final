@@ -33,5 +33,5 @@ formation_commentaire:
 
 
 formation_homepage:
-    path:     /
+    path:     /{id}
     defaults: { _controller: FormationBundle:Default:index }
