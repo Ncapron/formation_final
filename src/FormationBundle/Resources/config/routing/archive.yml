@@ -1,0 +1,4 @@
+archive_index:
+    path:     /
+    defaults: { _controller: "FormationBundle:Archive:index" }
+    methods:  GET

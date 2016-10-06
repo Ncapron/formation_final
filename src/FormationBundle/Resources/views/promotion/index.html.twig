@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Promotion list</h1>
-    <div class="container">
+
+    <h1 class="titre">Liste des promotions</h1>
+    <div class="container-fluid background">
         <div class="row">
-            <div class="col s12">
+            <div class="col m8 offset-m2">
                 {% for promotion in promotions %}
                     <figure class="figpromo">
                         <img src="{{ asset('uploads/promotion/') }}{{ promotion.logo }}" alt="img" width="245" height="220" />
@@ -25,10 +26,10 @@
             </div>
         </div>
     </div>
-
     <ul>
-        <li>
-            <a href="{{ path('promotion_new') }}">Create a new entry</a>
+        <li class="button-centre">
+            <a class="btn btn-default edit_admin" href="{{ path('promotion_new') }}">Create a new entry</a>
         </li>
     </ul>
+
 {% endblock %}

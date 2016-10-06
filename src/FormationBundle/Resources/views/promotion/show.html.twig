@@ -1,52 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Promotion</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ promotion.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ promotion.titre }}</td>
-            </tr>
-            <tr>
-                <th>Logo</th>
-                <td>{{ promotion.logo }}</td>
-            </tr>
-            <tr>
-                <th>Nomform</th>
-                <td>{{ promotion.nomForm }}</td>
-            </tr>
-            <tr>
-                <th>Prenomform</th>
-                <td>{{ promotion.prenomForm }}</td>
-            </tr>
-            <tr>
-                <th>Semaines</th>
-                <td>{{ promotion.semaines }}</td>
-            </tr>
-            <tr>
-                <th>Datedeb</th>
-                <td>{% if promotion.dateDeb %}{{ promotion.dateDeb|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Datefin</th>
-                <td>{% if promotion.dateFin %}{{ promotion.dateFin|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="col s12 m7">
+        <h2 class="titre">{{ promotion.titre }}</h2>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="{{ asset('uploads/promotion/') }}{{ promotion.logo }}" alt="img" width="50" height="220" />
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>Titre  : {{ promotion.titre }}</p>
+                    <p>Date de début : {{ promotion.dateDeb|date("d/m/Y") }}</p>
+                    <p>Date de fin : {{ promotion.dateFin|date("d/m/Y") }}</p>
+                    <p>Nombre de semaines : {{ promotion.semaines }}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}">Edit</a>
+                    <a href="{{ path('promotion_index') }}">Back to the list</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <ul>
-        <li>
-            <a href="{{ path('promotion_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}">Edit</a>
-        </li>
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">

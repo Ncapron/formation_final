@@ -1,0 +1,15 @@
+FormationBundle\Entity\Commentaire:
+    type: entity
+    table: null
+    repositoryClass: FormationBundle\Repository\CommentaireRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        message:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

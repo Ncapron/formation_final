@@ -1,34 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>eleve list</h1>
-    <div class="container">
+    <h1 class="titre">eleve list</h1>
+
+    <div class="container-fluid">
         <div class="row">
-            <div class="col m12">
-                {% for eleve in eleves %}
-                    <figure>
-                        <img src="{{ asset('uploads/eleves/') }}{{ eleve.logo }}" alt="img" width="245" height="220" />
-                        <figcaption>
-                            <p>{{ eleve.nom }}</p>
-                            <p>{{ eleve.tel }}</p>
-                            <ul>
-                                <li>
-                                    <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">show</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">edit</a>
-                                </li>
-                            </ul>
-                        </figcaption>
-                    </figure>
-                {% endfor %}
+            <div class="col m8 offset-m2">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Date de naissance</th>
+                        <th>tel</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for eleve in eleves %}
+                        <tr>
+                            <td>{{ eleve.nom }}</td>
+                            <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
+                            <td>{{ eleve.tel }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">edit</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 
     <ul>
-        <li>
-            <a href="{{ path('eleve_new') }}">Create a new entry</a>
+        <li class="button-centre">
+            <a class="btn btn-default edit_admin" href="{{ path('module_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

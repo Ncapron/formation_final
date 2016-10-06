@@ -1,4 +1,13 @@
 
+.ilike-blue-container {
+@extend .blue, .lighten-4;
+}
+
+
+/*general*/
+.background{
+    background-color:#BBD2E1
+}
 /*Promotions et eleves cartes*/
 figure {
     float :left;
@@ -32,4 +41,37 @@ img {
     padding : 5px;
     border : solid 1px #444444;
 }
+/*fin*/
 
+/*checkbox edit archive*/
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    color: black;
+}
+
+
+/* WEBKIT CHECKBOX Edit PROMOTION/ELEVE */
+input[type=checkbox]
+{
+    -webkit-appearance:checkbox;
+}
+/*fin*/
+
+/*mise en page crud*/
+
+.titre{
+    text-align: center;
+}
+
+.action{
+    text-align: right;
+}
+
+.button-centre{
+    text-align: center;
+}
+
+.nom{
+    text-align: center;
+}

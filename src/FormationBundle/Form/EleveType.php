@@ -3,6 +3,7 @@
 namespace FormationBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -22,8 +23,13 @@ class EleveType extends AbstractType
             ->add('ville')
             ->add('tel')
             ->add('mail')
-            ->add('datenaissance', 'date')
+            ->add('datenaissance', DateType::class, array(
+                'widget' => 'single_text',
+                'attr' => ['class' => 'datepicker'],
+                'format' => 'dd-MM-yyyy'
+            ))
             ->add('promotion')
+            ->add('archive')
         ;
     }
     

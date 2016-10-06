@@ -4,7 +4,88 @@
     <h1>Promotion edit</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
+    <div class="container">
+        <div class="row">
+            <div class="col m8 offset-m2">
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label(edit_form.titre) }}
+                        {{ form_widget(edit_form.titre) }}
+                        {{ form_errors(edit_form.titre) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.file) }}
+                        {{ form_widget(edit_form.file) }}
+                        {{ form_errors(edit_form.file) }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form_widget(edit_form.semaines) }}
+                        {{ form_errors(edit_form.semaines) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.nomForm) }}
+                        {{ form_widget(edit_form.nomForm) }}
+                        {{ form_errors(edit_form.nomForm) }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.prenomForm) }}
+                        {{ form_widget(edit_form.prenomForm) }}
+                        {{ form_errors(edit_form.prenomForm) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form_widget(edit_form.langage) }}
+                        {{ form_errors(edit_form.langage) }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form_widget(edit_form.intervenant) }}
+                        {{ form_errors(edit_form.intervenant) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.dateDeb) }}
+                        {{ form_widget(edit_form.dateDeb) }}
+                        {{ form_errors(edit_form.dateDeb) }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.dateFin) }}
+                        {{ form_widget(edit_form.dateFin) }}
+                        {{ form_errors(edit_form.dateFin) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label(edit_form.module) }}
+                        {{ form_widget(edit_form.module) }}
+                        {{ form_errors(edit_form.module) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label(edit_form.eleve) }}
+                        {{ form_widget(edit_form.eleve) }}
+                        {{ form_errors(edit_form.eleve) }}
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="checkbox">
+                            <label>
+                                {{ form_widget(edit_form.archive) }} Archiver
+                            </label>
+                            {{ form_errors(edit_form.archive) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
@@ -19,3 +100,7 @@
         </li>
     </ul>
 {% endblock %}
+
+
+
+

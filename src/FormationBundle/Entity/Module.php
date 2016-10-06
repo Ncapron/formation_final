@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Module
 {
+    public function __toString()
+    {
+        return $this->getNom();
+    }
     /**
      * @var int
      */
@@ -79,5 +83,90 @@ class Module
     public function getNom()
     {
         return $this->nom;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $promotion;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->promotion = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add promotion
+     *
+     * @param \FormationBundle\Entity\Promotion $promotion
+     *
+     * @return Module
+     */
+    public function addPromotion(\FormationBundle\Entity\Promotion $promotion)
+    {
+        $this->promotion[] = $promotion;
+
+        return $this;
+    }
+
+    /**
+     * Remove promotion
+     *
+     * @param \FormationBundle\Entity\Promotion $promotion
+     */
+    public function removePromotion(\FormationBundle\Entity\Promotion $promotion)
+    {
+        $this->promotion->removeElement($promotion);
+    }
+
+    /**
+     * Get promotion
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $eleve;
+
+
+    /**
+     * Add eleve
+     *
+     * @param \FormationBundle\Entity\Eleve $eleve
+     *
+     * @return Module
+     */
+    public function addEleve(\FormationBundle\Entity\Eleve $eleve)
+    {
+        $this->eleve[] = $eleve;
+
+        return $this;
+    }
+
+    /**
+     * Remove eleve
+     *
+     * @param \FormationBundle\Entity\Eleve $eleve
+     */
+    public function removeEleve(\FormationBundle\Entity\Eleve $eleve)
+    {
+        $this->eleve->removeElement($eleve);
+    }
+
+    /**
+     * Get eleve
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEleve()
+    {
+        return $this->eleve;
     }
 }

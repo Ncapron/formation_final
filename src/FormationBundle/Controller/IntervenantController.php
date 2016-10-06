@@ -52,21 +52,7 @@ class IntervenantController extends Controller
             'form' => $form->createView(),
         ));
     }
-
-    /**
-     * Finds and displays a Intervenant entity.
-     *
-     */
-    public function showAction(Intervenant $intervenant)
-    {
-        $deleteForm = $this->createDeleteForm($intervenant);
-
-        return $this->render('FormationBundle:intervenant:show.html.twig', array(
-            'intervenant' => $intervenant,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
+    
     /**
      * Displays a form to edit an existing Intervenant entity.
      *

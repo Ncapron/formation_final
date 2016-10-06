@@ -18,6 +18,10 @@ formation_langage:
     resource: "@FormationBundle/Resources/config/routing/langage.yml"
     prefix:   /langage
 
+formation_archive:
+    resource: "@FormationBundle/Resources/config/routing/archive.yml"
+    prefix:   /archive
+
 
 formation_homepage:
     path:     /

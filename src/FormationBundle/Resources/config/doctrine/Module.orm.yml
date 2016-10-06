@@ -15,3 +15,12 @@ FormationBundle\Entity\Module:
             type: string
             length: 255
     lifecycleCallbacks: {  }
+
+    manyToMany:
+        promotion:
+            targetEntity: FormationBundle\Entity\Promotion
+            mappedBy: module
+
+        eleve:
+            targetEntity: FormationBundle\Entity\Eleve
+            mappedBy: module

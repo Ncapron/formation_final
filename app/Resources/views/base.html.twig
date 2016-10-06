@@ -13,16 +13,21 @@
     </head>
     <body>
 
-
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Promotions</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">Eleves</a></li>
+    </ul>
     <nav>
         <div class="nav-wrapper">
             <a class="brand-logo">Formation</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right hide-on-med-and-down ilike-blue-container">
                 <li><a href="{{ path('promotion_index') }}">Promotions</a></li>
                 <li><a href="{{ path('eleve_index') }}">Eleves</a></li>
                 <li><a href="{{ path('module_index') }}">Modules</a></li>
-                <li><a href="{{ path('langage_index') }}">Languages</a></li>
+                <li><a href="{{ path('langage_index') }}">Langages</a></li>
                 <li><a href="{{ path('intervenant_index') }}">Intervenants</a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Archives</a></li>
             </ul>
         </div>
     </nav>
@@ -30,11 +35,12 @@
 
     {% block body %}{% endblock %}
         {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+            <!-- materialize -->
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
             <script src="{{ asset('bundles/formation/js/main.js') }}"></script>
-            <!-- materialize -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-            <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         {% endblock %}
     </body>
 </html>

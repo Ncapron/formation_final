@@ -35,6 +35,9 @@ FormationBundle\Entity\Promotion:
         dateFin:
             type: date
             column: date_fin
+        archive:
+            type: boolean
+            nullable: true
     lifecycleCallbacks:
       prePersist: [ preUpload, setCreatedAtValue, setExpiresAtValue ]
       preUpdate: [ preUpload, setUpdatedAtValue ]
@@ -43,13 +46,8 @@ FormationBundle\Entity\Promotion:
       postRemove: [ removeUpload ]
 
     manyToOne:
-        module:
-            targetEntity: FormationBundle\Entity\Module
         langage:
             targetEntity: FormationBundle\Entity\Langage
-        intervenant:
-            targetEntity: FormationBundle\Entity\Intervenant
-
 
 
     manyToMany:
@@ -63,3 +61,25 @@ FormationBundle\Entity\Promotion:
                         referencedColumnName: id
                 inverseJoinColumns:
                     eleve_id:
+
+        module:
+            targetEntity: FormationBundle\Entity\Module
+            inversedBy: promotion
+            joinTable:
+                name: prom_module
+                joinColumns:
+                    promotion_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    module_id:
+
+        intervenant:
+            targetEntity: FormationBundle\Entity\Intervenant
+            inversedBy: promotion
+            joinTable:
+                name: prom_intervenant
+                joinColumns:
+                    promotion_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    intervenant_id:

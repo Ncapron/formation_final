@@ -4,7 +4,69 @@
     <h1>Eleve edit</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
+    <div class="container">
+        <div class="row">
+            <div class="col m8 offset-m2">
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label(edit_form.nom) }}
+                        {{ form_widget(edit_form.nom) }}
+                        {{ form_errors(edit_form.nom) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label(edit_form.file) }}
+                        {{ form_widget(edit_form.file) }}
+                        {{ form_errors(edit_form.file) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label(edit_form.adresse) }}
+                        {{ form_widget(edit_form.adresse) }}
+                        {{ form_errors(edit_form.adresse) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.cp) }}
+                        {{ form_widget(edit_form.cp) }}
+                        {{ form_errors(edit_form.cp) }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.ville) }}
+                        {{ form_widget(edit_form.ville) }}
+                        {{ form_errors(edit_form.ville) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.tel) }}
+                        {{ form_widget(edit_form.tel) }}
+                        {{ form_errors(edit_form.tel) }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.mail) }}
+                        {{ form_widget(edit_form.mail) }}
+                        {{ form_errors(edit_form.mail) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.datenaissance) }}
+                        {{ form_widget(edit_form.datenaissance) }}
+                        {{ form_errors(edit_form.datenaissance) }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.promotion) }}
+                        {{ form_widget(edit_form.promotion) }}
+                        {{ form_errors(edit_form.promotion) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         <input type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
@@ -19,3 +81,4 @@
         </li>
     </ul>
 {% endblock %}
+

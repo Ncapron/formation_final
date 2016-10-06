@@ -30,6 +30,9 @@ FormationBundle\Entity\Eleve:
             length: 255
         datenaissance:
             type: date
+        archive:
+            type: boolean
+            nullable: true
     lifecycleCallbacks:
       prePersist: [ preUpload, setCreatedAtValue, setExpiresAtValue ]
       preUpdate: [ preUpload, setUpdatedAtValue ]
@@ -41,3 +44,14 @@ FormationBundle\Entity\Eleve:
         promotion:
             targetEntity: FormationBundle\Entity\Promotion
             mappedBy: eleve
+
+        module:
+            targetEntity: FormationBundle\Entity\Module
+            inversedBy: eleve
+            joinTable:
+                name: eleve_module
+                joinColumns:
+                    eleve_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    module_id:

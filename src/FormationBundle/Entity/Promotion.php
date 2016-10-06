@@ -439,4 +439,81 @@ class Promotion
     {
         return $this->eleve;
     }
+    /**
+     * @var boolean
+     */
+    private $archive;
+
+
+    /**
+     * Set archive
+     *
+     * @param boolean $archive
+     *
+     * @return Promotion
+     */
+    public function setArchive($archive)
+    {
+        $this->archive = $archive;
+
+        return $this;
+    }
+
+    /**
+     * Get archive
+     *
+     * @return boolean
+     */
+    public function getArchive()
+    {
+        return $this->archive;
+    }
+
+    /**
+     * Add module
+     *
+     * @param \FormationBundle\Entity\Module $module
+     *
+     * @return Promotion
+     */
+    public function addModule(\FormationBundle\Entity\Module $module)
+    {
+        $this->module[] = $module;
+
+        return $this;
+    }
+
+    /**
+     * Remove module
+     *
+     * @param \FormationBundle\Entity\Module $module
+     */
+    public function removeModule(\FormationBundle\Entity\Module $module)
+    {
+        $this->module->removeElement($module);
+    }
+
+    /**
+     * Add intervenant
+     *
+     * @param \FormationBundle\Entity\Intervenant $intervenant
+     *
+     * @return Promotion
+     */
+    public function addIntervenant(\FormationBundle\Entity\Intervenant $intervenant)
+    {
+        $this->intervenant[] = $intervenant;
+
+        return $this;
+    }
+
+    /**
+     * Remove intervenant
+     *
+     * @param \FormationBundle\Entity\Intervenant $intervenant
+     */
+    public function removeIntervenant(\FormationBundle\Entity\Intervenant $intervenant)
+    {
+        $this->intervenant->removeElement($intervenant);
+    }
 }
