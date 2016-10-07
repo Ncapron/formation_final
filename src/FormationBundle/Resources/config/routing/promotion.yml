@@ -22,3 +22,8 @@ promotion_delete:
     path:     /{id}/delete
     defaults: { _controller: "FormationBundle:Promotion:delete" }
     methods:  DELETE
+
+promotion_eleveprom:
+    path:     /{id}/liste/eleve
+    defaults: { _controller: "FormationBundle:Promotion:eleveprom" }
+    methods:  GET
