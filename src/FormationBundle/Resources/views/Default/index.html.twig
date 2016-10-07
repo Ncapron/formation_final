@@ -5,7 +5,7 @@
 {% for eleve in eleve %}
   <p>{{ eleve.nom }}</p>
 {% endfor %}
-
+{{ form_start(form) }}
 	<table class="striped highlight">
       <thead>
         <tr>
@@ -57,8 +57,18 @@
         	<tr>
 	        	<td>{{ module.numero }}</td>
 	        	<td>{{ module.nom }}</td>
+                <td>
+                  <select name="note[]">
+                    <option value="nd">Non défini</option>
+                    <option value="A">A</option>
+                    <option value="EA">EA</option>
+                    <option value="NA">NA</option>
+                  </select>
+                </td>
 	        </tr>
         {% endfor %}
       </tbody>
     </table>
+  <input class="btn btn-default edit_admin" type="submit" value="Create" />
+  {{ form_end(form) }}
 {% endblock %}

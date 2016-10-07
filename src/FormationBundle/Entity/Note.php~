@@ -3,9 +3,9 @@
 namespace FormationBundle\Entity;
 
 /**
- * Commentaire
+ * Note
  */
-class Commentaire
+class Note
 {
     /**
      * @var int
@@ -15,7 +15,7 @@ class Commentaire
     /**
      * @var string
      */
-    private $message;
+    private $note;
 
 
     /**
@@ -29,26 +29,27 @@ class Commentaire
     }
 
     /**
-     * Set message
+     * Set note
      *
-     * @param string $message
+     * @param string $note
      *
-     * @return Commentaire
+     * @return Note
      */
-    public function setMessage($message)
+    public function setNote($note)
     {
-        $this->message = $message;
+        $this->note = $note;
 
         return $this;
     }
 
     /**
-     * Get message
+     * Get note
      *
      * @return string
      */
-    public function getMessage()
+    public function getNote()
     {
-        return $this->message;
+        return $this->note;
     }
 }
+

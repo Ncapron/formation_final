@@ -13,3 +13,9 @@ FormationBundle\Entity\Note:
             type: string
             length: '2'
     lifecycleCallbacks: {  }
+
+    manyToOne:
+        promotion:
+            targetEntity: FormationBundle\Entity\Promotion
+        eleve:
+            targetEntity: FormationBundle\Entity\Eleve

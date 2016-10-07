@@ -130,4 +130,43 @@ class Module
     {
         return $this->promotion;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $eleve;
+
+
+    /**
+     * Add eleve
+     *
+     * @param \FormationBundle\Entity\Eleve $eleve
+     *
+     * @return Module
+     */
+    public function addEleve(\FormationBundle\Entity\Eleve $eleve)
+    {
+        $this->eleve[] = $eleve;
+
+        return $this;
+    }
+
+    /**
+     * Remove eleve
+     *
+     * @param \FormationBundle\Entity\Eleve $eleve
+     */
+    public function removeEleve(\FormationBundle\Entity\Eleve $eleve)
+    {
+        $this->eleve->removeElement($eleve);
+    }
+
+    /**
+     * Get eleve
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEleve()
+    {
+        return $this->eleve;
+    }
 }

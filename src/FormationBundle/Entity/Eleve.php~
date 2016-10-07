@@ -413,4 +413,43 @@ class Eleve
     {
         return $this->archive;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $module;
+
+
+    /**
+     * Add module
+     *
+     * @param \FormationBundle\Entity\Module $module
+     *
+     * @return Eleve
+     */
+    public function addModule(\FormationBundle\Entity\Module $module)
+    {
+        $this->module[] = $module;
+
+        return $this;
+    }
+
+    /**
+     * Remove module
+     *
+     * @param \FormationBundle\Entity\Module $module
+     */
+    public function removeModule(\FormationBundle\Entity\Module $module)
+    {
+        $this->module->removeElement($module);
+    }
+
+    /**
+     * Get module
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getModule()
+    {
+        return $this->module;
+    }
 }
