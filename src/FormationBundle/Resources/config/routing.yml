@@ -30,9 +30,7 @@ formation_commentaire:
     resource: "@FormationBundle/Resources/config/routing/commentaire.yml"
     prefix:   /commentaire
 
-formation_eleveprom:
-    resource: "@FormationBundle/Resources/config/routing/eleve.yml"
-    prefix:   /eleve
+
 
 
 

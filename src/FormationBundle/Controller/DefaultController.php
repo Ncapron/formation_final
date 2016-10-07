@@ -12,7 +12,7 @@ use FormationBundle\Form\NoteType;
 
 class DefaultController extends Controller
 {
-    public function indexAction($id, Request $request)
+    public function indexAction($eleve_id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 

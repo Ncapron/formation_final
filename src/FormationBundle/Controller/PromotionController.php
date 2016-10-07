@@ -135,4 +135,15 @@ class PromotionController extends Controller
             ->getForm()
         ;
     }
+
+    public function elevepromAction(Promotion $promotion)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $eleves = $em->getRepository('FormationBundle:Eleve')->findBy(array('promotion' => $promotion));
+
+        return $this->render('FormationBundle:promotion:listeelevprom.html.twig', array(
+            'eleves' => $eleves,
+        ));
+    }
 }

@@ -8,7 +8,7 @@
             <div class="col m8 offset-m2">
                 {% for promotion in promotions %}
                     <figure class="figpromo">
-                        <img src="{{ asset('uploads/promotion/') }}{{ promotion.logo }}" alt="img" width="245" height="220" />
+                        <a href="{{ path('promotion_eleveprom', { 'id': promotion.id }) }}"><img src="{{ asset('uploads/promotion/') }}{{ promotion.logo }}" alt="img" width="245" height="220" /></a>
                         <figcaption>
                             <p>{{ promotion.titre }}</p>
                             <p>{{ promotion.semaines }}semaines</p>
