@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="titre">eleve list</h1>
+    <h1 class="titre">Liste des élèves</h1>
 
     <div class="container-fluid">
         <div class="row">
@@ -24,10 +24,10 @@
                             <td>
                                 <ul>
                                     <li>
-                                        <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">show</a>
+                                        <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">Détails</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">edit</a>
+                                        <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Editer</a>
                                     </li>
                                 </ul>
                             </td>
@@ -41,7 +41,7 @@
 
     <ul>
         <li class="button-centre">
-            <a class="btn btn-default edit_admin" href="{{ path('eleve_new') }}">Create a new entry</a>
+            <a class="btn btn-default edit_admin" href="{{ path('eleve_new') }}">Créer un nouveau module</a>
         </li>
     </ul>
 {% endblock %}
