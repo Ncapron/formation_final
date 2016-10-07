@@ -12,13 +12,12 @@ use FormationBundle\Form\NoteType;
 
 class DefaultController extends Controller
 {
-    public function indexAction($eleve_id, Request $request)
+    public function indexAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $modules = $em->getRepository('FormationBundle:Module')->findAll();
-        $eleve = $em->getRepository('FormationBundle:Eleve')->findById($eleve_id);
-        $notes = $em->getRepository('FormationBundle:Note')->findBy(array('promotion_id' => $promotion_id, 'eleve_id' => $eleve_id));
+        $eleve = $em->getRepository('FormationBundle:Eleve')->findById($id);
 
         $note = new Note();
         $form = $this->createForm('FormationBundle\Form\NoteType', $note);
@@ -36,14 +35,13 @@ class DefaultController extends Controller
             }
 
 
-            return $this->redirectToRoute('note_show', array('id' => $note->getId()));
+            return $this->redirectToRoute('formation_homepage', array('id' => $note->getId()));
         }
 
         return $this->render('FormationBundle:Default:index.html.twig', array(
             'modules' => $modules,
             'eleve' => $eleve,
             'note' => $note,
-            'notes' => $notes,
             'form' => $form->createView(),
         ));
     }

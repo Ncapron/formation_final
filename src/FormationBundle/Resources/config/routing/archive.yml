@@ -2,3 +2,8 @@ archive_index:
     path:     /
     defaults: { _controller: "FormationBundle:Archive:index" }
     methods:  GET
+
+archive_prom:
+    path:     /prom
+    defaults: { _controller: "FormationBundle:Archive:prom" }
+    methods:  GET

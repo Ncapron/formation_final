@@ -43,25 +43,12 @@ img {
 }
 /*fin*/
 
-/*checkbox edit archive*/
-input {
-    -webkit-appearance: textfield;
-    background-color: white;
-    color: black;
-}
-
-
-/* WEBKIT CHECKBOX Edit PROMOTION/ELEVE */
-input[type=checkbox]
-{
-    -webkit-appearance:checkbox;
-}
-/*fin*/
 
 /*mise en page crud*/
 
 .titre{
     text-align: center;
+    font-size: 40px;
 }
 
 .action{

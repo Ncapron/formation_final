@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+<div class="container">
     <div class="col s12 m7">
-        <h2 class="header">Présentation de l'élève</h2>
+        <h2 class="titre">Présentation de l'élève</h2>
         <div class="card horizontal">
             <div class="card-image">
-                <img src="{{ asset('uploads/eleves/') }}{{ eleve.logo }}" alt="img" width="50" height="220" />
+                <img src="{{ asset('uploads/eleves/') }}{{ eleve.logo }}" alt="img" width="50" height="200" />
             </div>
             <div class="card-stacked">
                 <div class="card-content">
@@ -19,12 +19,13 @@
                     <p>Mail : {{ eleve.mail }}</p>
                 </div>
                 <div class="card-action">
-                    <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Edit</a>
-                    <a href="{{ path('eleve_index') }}">Back to the list</a>
+                    <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Editer</a>
+                    <a href="{{ path('eleve_index') }}">Retourner à la liste des élèves</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
     <ul>
@@ -33,10 +34,10 @@
         </li>
         <li>
         </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+        {#<li>#}
+            {#{{ form_start(delete_form) }}#}
+                {#<input type="submit" value="Delete">#}
+            {#{{ form_end(delete_form) }}#}
+        {#</li>#}
     </ul>
 {% endblock %}

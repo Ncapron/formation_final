@@ -1,21 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Module edit</h1>
+    <h1 class="titre">Editer le module</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    <div class="container">
+        <div class="row">
+            <div class="col m8 offset-m2">
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label(edit_form.numero) }}
+                        {{ form_widget(edit_form.numero) }}
+                        {{ form_errors(edit_form.numero) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label(edit_form.nom) }}
+                        {{ form_widget(edit_form.nom) }}
+                        {{ form_errors(edit_form.nom) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-centre">
+        <input class="btn btn-default edit_admin" type="submit" value="Créer" />
+    </div>
     {{ form_end(edit_form) }}
 
     <ul>
-        <li>
-            <a href="{{ path('module_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+        <li class=" button-centre">
+            <a class="btn btn-default edit_admin" href="{{ path('module_index') }}">Retourner à la liste des modules</a>
         </li>
     </ul>
 {% endblock %}
+

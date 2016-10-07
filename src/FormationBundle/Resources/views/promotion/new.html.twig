@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Promotion creation</h1>
+    <h1 class="titre">Création d'une promotion</h1>
 
     {{ form_start(form) }}
         <div class="container">
@@ -72,15 +72,23 @@
                             {{ form_errors(form.eleve) }}
                         </div>
                     </div>
+                    <div class="row-hidden">
+                        <div class="input-field col s12">
+                            {{ form_widget(form.archive) }}
+                            {{ form_errors(form.archive) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    <input class="btn btn-default edit_admin" type="submit" value="Create" />
+        <div class="button-centre">
+            <input class="btn btn-default edit_admin" type="submit" value="Créer" />
+        </div>
     {{ form_end(form) }}
 
     <ul>
-        <li>
-            <a class="btn btn-default edit_admin" href="{{ path('promotion_index') }}">Back to the list</a>
+        <li class="button-centre">
+            <a class="btn btn-default edit_admin" href="{{ path('promotion_index') }}">Retourner à la liste des promotions</a>
         </li>
     </ul>
 {% endblock %}

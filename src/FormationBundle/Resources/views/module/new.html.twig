@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Module creation</h1>
+    <h1 class="titre">Création du module</h1>
 
     {{ form_start(form) }}
 <div class="container">
@@ -24,12 +24,14 @@
         </div>
     </div>
 </div>
-        <input class="btn btn-default edit_admin" type="submit" value="Create" />
+    <div class="button-centre">
+        <input class="btn btn-default edit_admin" type="submit" value="Créer" />
+    </div>
     {{ form_end(form) }}
 
     <ul>
-        <li>
-            <a href="{{ path('module_index') }}">Back to the list</a>
+        <li class=" button-centre">
+            <a class="btn btn-default edit_admin" href="{{ path('module_index') }}">Retourner à la liste des modules</a>
         </li>
     </ul>
 {% endblock %}

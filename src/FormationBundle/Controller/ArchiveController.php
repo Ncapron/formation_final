@@ -16,4 +16,15 @@ class ArchiveController extends Controller
             'eleves' => $eleves,
         ));
     }
+    
+    public function promAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $promotions = $em->getRepository('FormationBundle:Promotion')->findAll();
+
+        return $this->render('FormationBundle:archive:archiveprom.html.twig', array(
+            'promotions' => $promotions,
+        ));
+    }
 }

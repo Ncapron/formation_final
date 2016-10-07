@@ -2,29 +2,29 @@
 
 {% block body %}
 
-    <h1 class="titre">Liste des promotions</h1>
+    <h1 class="titre">Liste des promotions archivées</h1>
     <div class="container-fluid background">
         <div class="row">
             <div class="col m8 offset-m2">
                 {% for promotion in promotions %}
-                    {% if promotion.archive == false %}
+                    {% if promotion.archive == true %}
                     <figure class="figpromo">
                         <a href="{{ path('promotion_eleveprom', { 'id': promotion.id }) }}"><img src="{{ asset('uploads/promotion/') }}{{ promotion.logo }}" alt="img" width="245" height="220" /></a>
                         <figcaption>
                             <p>{{ promotion.titre }}</p>
-                            <p>{{ promotion.semaines }} - semaines</p>
-                                    <a class="btn btn-default edit_admin" href="{{ path('promotion_show', { 'id': promotion.id }) }}">Details</a>
-                                    <a class="btn btn-default edit_admin" href="{{ path('promotion_edit', { 'id': promotion.id }) }}">Editer</a>
+                            <p>{{ promotion.semaines }}semaines</p>
+                            <a class="btn btn-default edit_admin" href="{{ path('promotion_show', { 'id': promotion.id }) }}">Details</a>
+                            <a class="btn btn-default edit_admin" href="{{ path('promotion_edit', { 'id': promotion.id }) }}">Editer</a>
                         </figcaption>
                     </figure>
-                {% endif %}
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
     </div>
     <ul>
         <li class="button-centre">
-            <a class="btn btn-default edit_admin" href="{{ path('promotion_new') }}">Créer une nouvelle promotion</a>
+            <a class="btn btn-default edit_admin" href="{{ path('promotion_new') }}">Create a new entry</a>
         </li>
     </ul>
 

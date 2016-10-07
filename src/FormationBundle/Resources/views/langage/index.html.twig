@@ -3,7 +3,7 @@
 {% block body %}
     <h1 class="titre">Liste des différents langages</h1>
 
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row">
         <div class="col m8 offset-m2">
             <table class="table">
@@ -20,7 +20,7 @@
                         <td>
                             <ul>
                                 <li class="action">
-                                    <a href="{{ path('langage_edit', { 'id': langage.id }) }}">edit</a>
+                                    <a href="{{ path('langage_edit', { 'id': langage.id }) }}">Editer</a>
                                 </li>
                             </ul>
                         </td>
@@ -34,7 +34,7 @@
 
     <ul>
         <li class="button-centre">
-            <a class="btn btn-default edit_admin" href="{{ path('module_new') }}">Create a new entry</a>
+            <a class="btn btn-default edit_admin" href="{{ path('langage_new') }}">Créer un nouveau langage</a>
         </li>
     </ul>
 {% endblock %}

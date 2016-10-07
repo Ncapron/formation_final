@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Langage creation</h1>
+    <h1 class="titre">Création d'un langage</h1>
 
     {{ form_start(form) }}
     <div class="container">
@@ -17,12 +17,14 @@
             </div>
         </div>
     </div>
+    <div class="button-centre">
         <input class="btn btn-default edit_admin" type="submit" value="Create" />
+    </div>
     {{ form_end(form) }}
 
     <ul>
-        <li>
-            <a href="{{ path('langage_index') }}">Back to the list</a>
+        <li class="button-centre">
+            <a class="btn btn-default edit_admin" href="{{ path('langage_index') }}">Retourner à la liste des langages</a>
         </li>
     </ul>
 {% endblock %}

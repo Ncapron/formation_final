@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Eleve edit</h1>
+    <h1 class="titre">Editer un élève</h1>
 
     {{ form_start(edit_form) }}
     <div class="container">
@@ -59,8 +59,8 @@
                         {{ form_errors(edit_form.datenaissance) }}
                     </div>
                     <div class="input-field col s6">
-                        {{ form_label(edit_form.promotion) }}
                         {{ form_widget(edit_form.promotion) }}
+                        {{ form_label(edit_form.promotion) }}
                         {{ form_errors(edit_form.promotion) }}
                     </div>
                     <div class="container">
@@ -78,16 +78,18 @@
             </div>
         </div>
     </div>
-        <input type="submit" value="Edit" />
+    <div class="button-centre">
+        <input class="btn btn-default edit_admin" type="submit" value="Editer" />
+    </div>
     {{ form_end(edit_form) }}
 
     <ul>
-        <li>
-            <a href="{{ path('eleve_index') }}">Back to the list</a>
+        <li class="button-centre">
+            <a class="btn btn-default edit_admin"  href="{{ path('eleve_index') }}">Liste des élèves</a>
         </li>
-        <li>
+        <li class="button-centre">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input style="margin-top: 1%" class="btn btn-default edit_admin" type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

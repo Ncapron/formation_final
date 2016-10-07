@@ -2,8 +2,7 @@
 
 {% block body %}
     <h1 class="titre">Liste des élèves</h1>
-
-    <div class="container-fluid">
+    <div class="container-fluid ">
         <div class="row">
             <div class="col m8 offset-m2">
                 <table class="table">
@@ -17,6 +16,7 @@
                     </thead>
                     <tbody>
                     {% for eleve in eleves %}
+                        {% if eleve.archive == false %}
                         <tr>
                             <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}"</a>{{ eleve.nom }}</td>
                             <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
@@ -32,16 +32,16 @@
                                 </ul>
                             </td>
                         </tr>
+                        {% endif %}
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
     <ul>
         <li class="button-centre">
-            <a class="btn btn-default edit_admin" href="{{ path('eleve_new') }}">Créer un nouveau module</a>
+            <a class="btn btn-default edit_admin" href="{{ path('eleve_new') }}">Créer un nouvel élève</a>
         </li>
     </ul>
 {% endblock %}

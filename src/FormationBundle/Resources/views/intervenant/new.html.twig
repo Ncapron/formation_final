@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Intervenant creation</h1>
+    <h1 class="titre">Intervenant creation</h1>
 
     {{ form_start(form) }}
 
@@ -18,12 +18,14 @@
         </div>
     </div>
 </div>
-        <input class="btn btn-default edit_admin" type="submit" value="Create" />
+    <div class="button-centre">
+        <input class="btn btn-default edit_admin" type="submit" value="Créer" />
+    </div>
     {{ form_end(form) }}
 
     <ul>
-        <li>
-            <a class="btn btn-default edit_admin" href="{{ path('intervenant_index') }}">Back to the list</a>
+        <li class="button-centre">
+            <a class="btn btn-default edit_admin" href="{{ path('intervenant_index') }}">Retourner à la liste des intervenants</a>
         </li>
     </ul>
 {% endblock %}

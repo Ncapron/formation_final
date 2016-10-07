@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>eleve list</h1>
+    <h1 class="titre">Liste des élèves archivés</h1>
     <div class="container-fluid">
         <div class="row">
             <div class="col m8 offset-m2">
@@ -24,10 +24,10 @@
                             <td>
                                 <ul>
                                     <li>
-                                        <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">show</a>
+                                        <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">Détails</a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">edit</a>
+                                        <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Editer</a>
                                     </li>
                                 </ul>
                             </td>
