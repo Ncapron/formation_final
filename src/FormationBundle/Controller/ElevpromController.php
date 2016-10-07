@@ -12,7 +12,7 @@ class ElevpromController extends Controller
 
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array('promotion_id' => $promotion_id, 'eleve_id' => $eleve_id));
 
-        return $this->render('FormationBundle:archive:archive.html.twig', array(
+        return $this->render('FormationBundle:Default:index.html.twig', array(
             'note' => $notes,
         ));
     }
