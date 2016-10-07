@@ -8,9 +8,9 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Nom</th>
+                        <th>Nom/Prénom</th>
                         <th>Date de naissance</th>
-                        <th>tel</th>
+                        <th>N° Téléphone</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -20,7 +20,7 @@
                         <tr>
                             <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}"</a>{{ eleve.nom }}</td>
                             <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
-                            <td>{{ eleve.tel }}</td>
+                            <td>0{{ eleve.tel }}</td>
                             <td>
                                 <ul>
                                     <li>

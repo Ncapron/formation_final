@@ -93,7 +93,7 @@ class EleveController extends Controller
             $em->persist($eleve);
             $em->flush();
 
-            return $this->redirectToRoute('eleve_edit', array('id' => $eleve->getId()));
+            return $this->redirectToRoute('eleve_show', array('id' => $eleve->getId()));
         }
 
         return $this->render('FormationBundle:eleve:edit.html.twig', array(

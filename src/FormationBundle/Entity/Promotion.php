@@ -516,4 +516,91 @@ class Promotion
     {
         $this->intervenant->removeElement($intervenant);
     }
+    /**
+     * @var string
+     */
+    private $nomFormateur;
+
+    /**
+     * @var string
+     */
+    private $prenomFormateur;
+
+
+    /**
+     * Set nomFormateur
+     *
+     * @param string $nomFormateur
+     *
+     * @return Promotion
+     */
+    public function setNomFormateur($nomFormateur)
+    {
+        $this->nomFormateur = $nomFormateur;
+
+        return $this;
+    }
+
+    /**
+     * Get nomFormateur
+     *
+     * @return string
+     */
+    public function getNomFormateur()
+    {
+        return $this->nomFormateur;
+    }
+
+    /**
+     * Set prenomFormateur
+     *
+     * @param string $prenomFormateur
+     *
+     * @return Promotion
+     */
+    public function setPrenomFormateur($prenomFormateur)
+    {
+        $this->prenomFormateur = $prenomFormateur;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomFormateur
+     *
+     * @return string
+     */
+    public function getPrenomFormateur()
+    {
+        return $this->prenomFormateur;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $dateDebut;
+
+
+    /**
+     * Set dateDebut
+     *
+     * @param \DateTime $dateDebut
+     *
+     * @return Promotion
+     */
+    public function setDateDebut($dateDebut)
+    {
+        $this->dateDebut = $dateDebut;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDebut
+     *
+     * @return \DateTime
+     */
+    public function getDateDebut()
+    {
+        return $this->dateDebut;
+    }
 }

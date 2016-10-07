@@ -27,14 +27,14 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            {{ form_label(form.nomForm) }}
-                            {{ form_widget(form.nomForm) }}
-                            {{ form_errors(form.nomForm) }}
+                            {{ form_label(form.nomFormateur) }}
+                            {{ form_widget(form.nomFormateur) }}
+                            {{ form_errors(form.nomFormateur) }}
                         </div>
                         <div class="input-field col s6">
-                            {{ form_label(form.prenomForm) }}
-                            {{ form_widget(form.prenomForm) }}
-                            {{ form_errors(form.prenomForm) }}
+                            {{ form_label(form.prenomFormateur) }}
+                            {{ form_widget(form.prenomFormateur) }}
+                            {{ form_errors(form.prenomFormateur) }}
                         </div>
                     </div>
                     <div class="row">
@@ -45,14 +45,15 @@
                         </div>
                         <div class="input-field col s6">
                             {{ form_widget(form.intervenant) }}
+                            {{ form_label(form.intervenant) }}
                             {{ form_errors(form.intervenant) }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            {{ form_label(form.dateDeb) }}
-                            {{ form_widget(form.dateDeb) }}
-                            {{ form_errors(form.dateDeb) }}
+                            {{ form_label(form.dateDebut) }}
+                            {{ form_widget(form.dateDebut) }}
+                            {{ form_errors(form.dateDebut) }}
                         </div>
                         <div class="input-field col s6">
                             {{ form_label(form.dateFin) }}

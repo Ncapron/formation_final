@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Eleve creation</h1>
+    <h1 class="titre">Création d'un élève</h1>
 
     {{ form_start(form) }}
     <div class="container">
@@ -63,16 +63,24 @@
                         {{ form_widget(form.promotion) }}
                         {{ form_errors(form.promotion) }}
                     </div>
+                    <div class="row-hidden">
+                        <div class="input-field col s12">
+                            {{ form_widget(form.archive) }}
+                            {{ form_errors(form.archive) }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-        <input class="btn btn-default edit_admin" type="submit" value="Create" />
+    <div class="button-centre">
+        <input class="btn btn-default edit_admin" type="submit" value="Créer" />
+    </div>
     {{ form_end(form) }}
 
     <ul>
-        <li>
-            <a class="btn btn-default edit_admin" href="{{ path('eleve_index') }}">Back to the list</a>
+        <li class="button-centre">
+            <a class="btn btn-default edit_admin" href="{{ path('eleve_index') }}">Liste des élèves</a>
         </li>
     </ul>
 {% endblock %}

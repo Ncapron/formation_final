@@ -13,6 +13,7 @@
                     <p>Date de début : {{ promotion.dateDeb|date("d/m/Y") }}</p>
                     <p>Date de fin : {{ promotion.dateFin|date("d/m/Y") }}</p>
                     <p>Nombre de semaines : {{ promotion.semaines }}</p>
+                    <p>Langage appris : {{ promotion.langage }}</p>
                 </div>
                 <div class="card-action">
                     <a href="{{ path('promotion_edit', { 'id': promotion.id }) }}">Editer</a>

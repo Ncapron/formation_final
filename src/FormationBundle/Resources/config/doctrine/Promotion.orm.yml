@@ -16,12 +16,12 @@ FormationBundle\Entity\Promotion:
         logo:
             type: string
             length: 255
-        nomForm:
+        nomFormateur:
             type: string
             length: 255
             nullable: true
             column: nom_form
-        prenomForm:
+        prenomFormateur:
             type: string
             length: 255
             nullable: true
@@ -29,7 +29,7 @@ FormationBundle\Entity\Promotion:
         semaines:
             type: string
             length: 255
-        dateDeb:
+        dateDebut:
             type: date
             column: date_deb
         dateFin:

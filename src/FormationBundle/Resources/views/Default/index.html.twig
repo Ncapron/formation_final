@@ -3,17 +3,16 @@
 {% block body %}
 
 {% for eleve in eleve %}
-  <p>Nom et Prénom de l'élève : </br>
-    {{ eleve.nom }}</p>
+  <p class="titre">{{ eleve.nom }}</p>
 {% endfor %}
 
 {{ form_start(form) }}
 <div class="container">
     <div class="col s12 m10">
 	<table class="striped highlight">
-      <thead>
+      <thead  style="text-align: right">
         <tr>
-            <th style="text-align: center;" colspan="2">module</th>
+            <th>module</th>
             <th style="text-align: center;" colspan="2">Semaine 1</th>
             <th style="text-align: center;" colspan="2">Semaine 2</th>
             <th style="text-align: center;" colspan="2">Semaine 3</th>
@@ -124,6 +123,8 @@
       </tbody>
     </table>
 </div>
-  <input class="btn btn-default edit_admin button-centre" type="submit" value="Create" />
+<div class="button-centre">
+  <input class="btn btn-default edit_admin" type="submit" value="Valider" />
+</div>
   {{ form_end(form) }}
 {% endblock %}

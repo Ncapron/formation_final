@@ -19,8 +19,8 @@ class PromotionType extends AbstractType
         $builder
             ->add('titre')
             ->add('file', 'file', array('label' => ' ', 'required' => false))
-            ->add('nomForm')
-            ->add('prenomForm')
+            ->add('nomFormateur')
+            ->add('prenomFormateur')
             ->add('semaines', ChoiceType::class, array(
                 'choices' => array(
                     '4' => '4',
@@ -40,7 +40,7 @@ class PromotionType extends AbstractType
                 'placeholder' => 'Selectionnez le nombre de semaines',
                 'empty_data'  => null
             ))
-            ->add('dateDeb', DateType::class, array(
+            ->add('dateDebut', DateType::class, array(
                 'widget' => 'single_text',
                 'attr' => ['class' => 'datepicker'],
                 'format' => 'dd-MM-yyyy'
