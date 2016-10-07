@@ -16,7 +16,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for eleve in eleves %}
+                    {% for eleves in promo %}
+
+                        {% for eleve in eleves.eleve %}
+                        {#{{ dump(ele) }}#}
                         <tr>
                             <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}"</a>{{ eleve.nom }}</td>
                             <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
@@ -32,6 +35,7 @@
                                 </ul>
                             </td>
                         </tr>
+                            {% endfor %}
                     {% endfor %}
                     </tbody>
                 </table>

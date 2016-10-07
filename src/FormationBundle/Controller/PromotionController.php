@@ -140,10 +140,11 @@ class PromotionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $eleves = $em->getRepository('FormationBundle:Eleve')->findBy(array('promotion' => $promotion));
+        $promo = $em->getRepository('FormationBundle:Promotion')->findByPromo($promotion);
+
 
         return $this->render('FormationBundle:promotion:listeelevprom.html.twig', array(
-            'eleves' => $eleves,
+            'promo' => $promo,
         ));
     }
 }
