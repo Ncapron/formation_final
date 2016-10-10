@@ -2,12 +2,12 @@
 
 {% block body %}
     <h1 class="titre">Liste des élèves archivés</h1>
-    <div class="container-fluid">
+            <div class="container-fluid">
         <div class="row">
             <div class="col m8 offset-m2">
                 <table class="table">
                     <thead>
-                    <tr>
+                        <tr>
                         <th>Nom/Prénom</th>
                         <th>Date de naissance</th>
                         <th>N° Téléphone</th>
@@ -16,8 +16,8 @@
                     </thead>
                     <tbody>
                     {% for eleve in eleves %}
-                        {% if eleve.archive == true %}
-                        <tr>
+                        {% if eleve.archive ==true %}
+                            <tr>
                             <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}"</a>{{ eleve.nom }}</td>
                             <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
                             <td>0{{ eleve.tel }}</td>

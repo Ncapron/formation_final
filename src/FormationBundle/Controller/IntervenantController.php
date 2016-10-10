@@ -44,7 +44,7 @@ class IntervenantController extends Controller
             $em->persist($intervenant);
             $em->flush();
 
-            return $this->redirectToRoute('intervenant_show', array('id' => $intervenant->getId()));
+            return $this->redirectToRoute('intervenant_index', array('id' => $intervenant->getId()));
         }
 
         return $this->render('FormationBundle:intervenant:new.html.twig', array(

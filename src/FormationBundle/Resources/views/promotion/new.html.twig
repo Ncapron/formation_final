@@ -27,14 +27,9 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            {{ form_label(form.nomFormateur) }}
-                            {{ form_widget(form.nomFormateur) }}
-                            {{ form_errors(form.nomFormateur) }}
-                        </div>
-                        <div class="input-field col s6">
-                            {{ form_label(form.prenomFormateur) }}
-                            {{ form_widget(form.prenomFormateur) }}
-                            {{ form_errors(form.prenomFormateur) }}
+                            {{ form_label(form.formateur) }}
+                            {{ form_widget(form.formateur) }}
+                            {{ form_errors(form.formateur) }}
                         </div>
                     </div>
                     <div class="row">
@@ -64,12 +59,14 @@
                     <div class="row">
                         <div class="input-field col s12">
                             {{ form_widget(form.module) }}
+                            {{ form_label(form.module) }}
                             {{ form_errors(form.module) }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
                             {{ form_widget(form.eleve) }}
+                            {{ form_label(form.eleve) }}
                             {{ form_errors(form.eleve) }}
                         </div>
                     </div>

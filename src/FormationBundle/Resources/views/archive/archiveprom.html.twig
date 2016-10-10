@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
     <h1 class="titre">Liste des promotions archivées</h1>
     <div class="container-fluid background">
         <div class="row">
@@ -17,6 +16,10 @@
                             <a class="btn btn-default edit_admin" href="{{ path('promotion_edit', { 'id': promotion.id }) }}">Editer</a>
                         </figcaption>
                     </figure>
+                    {% else %}
+                        <div>
+                            <h1 class="titre">Il n'y a pas de promotions dans les archives</h1>
+                        </div>
                     {% endif %}
                 {% endfor %}
             </div>

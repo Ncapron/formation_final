@@ -19,8 +19,7 @@ class PromotionType extends AbstractType
         $builder
             ->add('titre')
             ->add('file', 'file', array('label' => ' ', 'required' => false))
-            ->add('nomFormateur')
-            ->add('prenomFormateur')
+            ->add('formateur')
             ->add('semaines', ChoiceType::class, array(
                 'choices' => array(
                     '4' => '4',

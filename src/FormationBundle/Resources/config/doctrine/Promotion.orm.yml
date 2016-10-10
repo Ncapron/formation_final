@@ -16,12 +16,7 @@ FormationBundle\Entity\Promotion:
         logo:
             type: string
             length: 255
-        nomFormateur:
-            type: string
-            length: 255
-            nullable: true
-            column: nom_form
-        prenomFormateur:
+        formateur:
             type: string
             length: 255
             nullable: true

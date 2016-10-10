@@ -35,5 +35,5 @@ formation_commentaire:
 
 
 formation_homepage:
-    path:     /{id}
+    path:     /{id}/eletable
     defaults: { _controller: FormationBundle:Default:index }

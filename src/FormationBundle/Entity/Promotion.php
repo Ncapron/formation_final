@@ -28,7 +28,7 @@ class Promotion
 
     public function getWebPath()
     {
-        return null === $this->logo ? null : $this->getUploadDir().'/'.$this->logo;
+        return null === $this->logo ? null : $this->getUploadDir() . '/' . $this->logo;
     }
 
     public function getAbsolutePath()
@@ -43,7 +43,7 @@ class Promotion
     {
         if (null !== $this->file) {
             // do whatever you want to generate a unique name
-            $this->logo = uniqid().'.'.$this->file->guessExtension();
+            $this->logo = uniqid() . '.' . $this->file->guessExtension();
         }
     }
 
@@ -99,6 +99,7 @@ class Promotion
     }
 
     //generate
+
     /**
      * @var integer
      */
@@ -117,12 +118,7 @@ class Promotion
     /**
      * @var string
      */
-    private $nomForm;
-
-    /**
-     * @var string
-     */
-    private $prenomForm;
+    private $formateur;
 
     /**
      * @var string
@@ -132,7 +128,7 @@ class Promotion
     /**
      * @var \DateTime
      */
-    private $dateDeb;
+    private $dateDebut;
 
     /**
      * @var \DateTime
@@ -140,15 +136,44 @@ class Promotion
     private $dateFin;
 
     /**
-     * @var \FormationBundle\Entity\Module
+     * @var boolean
+     */
+    private $archive;
+
+    /**
+     * @var \FormationBundle\Entity\Langage
+     */
+    private $langage;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $eleve;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
      */
     private $module;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $intervenant;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->eleve = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->module = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->intervenant = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -159,6 +184,7 @@ class Promotion
      * Set titre
      *
      * @param string $titre
+     *
      * @return Promotion
      */
     public function setTitre($titre)
@@ -171,7 +197,7 @@ class Promotion
     /**
      * Get titre
      *
-     * @return string 
+     * @return string
      */
     public function getTitre()
     {
@@ -182,6 +208,7 @@ class Promotion
      * Set logo
      *
      * @param string $logo
+     *
      * @return Promotion
      */
     public function setLogo($logo)
@@ -194,7 +221,7 @@ class Promotion
     /**
      * Get logo
      *
-     * @return string 
+     * @return string
      */
     public function getLogo()
     {
@@ -202,55 +229,34 @@ class Promotion
     }
 
     /**
-     * Set nomForm
+     * Set formateur
      *
-     * @param string $nomForm
+     * @param string $formateur
+     *
      * @return Promotion
      */
-    public function setNomForm($nomForm)
+    public function setFormateur($formateur)
     {
-        $this->nomForm = $nomForm;
+        $this->formateur = $formateur;
 
         return $this;
     }
 
     /**
-     * Get nomForm
+     * Get formateur
      *
-     * @return string 
+     * @return string
      */
-    public function getNomForm()
+    public function getFormateur()
     {
-        return $this->nomForm;
-    }
-
-    /**
-     * Set prenomForm
-     *
-     * @param string $prenomForm
-     * @return Promotion
-     */
-    public function setPrenomForm($prenomForm)
-    {
-        $this->prenomForm = $prenomForm;
-
-        return $this;
-    }
-
-    /**
-     * Get prenomForm
-     *
-     * @return string 
-     */
-    public function getPrenomForm()
-    {
-        return $this->prenomForm;
+        return $this->formateur;
     }
 
     /**
      * Set semaines
      *
      * @param string $semaines
+     *
      * @return Promotion
      */
     public function setSemaines($semaines)
@@ -263,7 +269,7 @@ class Promotion
     /**
      * Get semaines
      *
-     * @return string 
+     * @return string
      */
     public function getSemaines()
     {
@@ -271,32 +277,34 @@ class Promotion
     }
 
     /**
-     * Set dateDeb
+     * Set dateDebut
      *
-     * @param \DateTime $dateDeb
+     * @param \DateTime $dateDebut
+     *
      * @return Promotion
      */
-    public function setDateDeb($dateDeb)
+    public function setDateDebut($dateDebut)
     {
-        $this->dateDeb = $dateDeb;
+        $this->dateDebut = $dateDebut;
 
         return $this;
     }
 
     /**
-     * Get dateDeb
+     * Get dateDebut
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getDateDeb()
+    public function getDateDebut()
     {
-        return $this->dateDeb;
+        return $this->dateDebut;
     }
 
     /**
      * Set dateFin
      *
      * @param \DateTime $dateFin
+     *
      * @return Promotion
      */
     public function setDateFin($dateFin)
@@ -309,141 +317,12 @@ class Promotion
     /**
      * Get dateFin
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateFin()
     {
         return $this->dateFin;
     }
-
-    /**
-     * Set module
-     *
-     * @param \FormationBundle\Entity\Module $module
-     * @return Promotion
-     */
-    public function setModule(\FormationBundle\Entity\Module $module = null)
-    {
-        $this->module = $module;
-
-        return $this;
-    }
-
-    /**
-     * Get module
-     *
-     * @return \FormationBundle\Entity\Module 
-     */
-    public function getModule()
-    {
-        return $this->module;
-    }
-    /**
-     * @var \FormationBundle\Entity\Langage
-     */
-    private $langage;
-
-    /**
-     * @var \FormationBundle\Entity\Intervenant
-     */
-    private $intervenant;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $eleve;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->eleve = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set langage
-     *
-     * @param \FormationBundle\Entity\Langage $langage
-     * @return Promotion
-     */
-    public function setLangage(\FormationBundle\Entity\Langage $langage = null)
-    {
-        $this->langage = $langage;
-
-        return $this;
-    }
-
-    /**
-     * Get langage
-     *
-     * @return \FormationBundle\Entity\Langage 
-     */
-    public function getLangage()
-    {
-        return $this->langage;
-    }
-
-    /**
-     * Set intervenant
-     *
-     * @param \FormationBundle\Entity\Intervenant $intervenant
-     * @return Promotion
-     */
-    public function setIntervenant(\FormationBundle\Entity\Intervenant $intervenant = null)
-    {
-        $this->intervenant = $intervenant;
-
-        return $this;
-    }
-
-    /**
-     * Get intervenant
-     *
-     * @return \FormationBundle\Entity\Intervenant 
-     */
-    public function getIntervenant()
-    {
-        return $this->intervenant;
-    }
-
-    /**
-     * Add eleve
-     *
-     * @param \FormationBundle\Entity\Eleve $eleve
-     * @return Promotion
-     */
-    public function addEleve(\FormationBundle\Entity\Eleve $eleve)
-    {
-        $this->eleve[] = $eleve;
-
-        return $this;
-    }
-
-    /**
-     * Remove eleve
-     *
-     * @param \FormationBundle\Entity\Eleve $eleve
-     */
-    public function removeEleve(\FormationBundle\Entity\Eleve $eleve)
-    {
-        $this->eleve->removeElement($eleve);
-    }
-
-    /**
-     * Get eleve
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getEleve()
-    {
-        return $this->eleve;
-    }
-    /**
-     * @var boolean
-     */
-    private $archive;
-
 
     /**
      * Set archive
@@ -467,6 +346,64 @@ class Promotion
     public function getArchive()
     {
         return $this->archive;
+    }
+
+    /**
+     * Set langage
+     *
+     * @param \FormationBundle\Entity\Langage $langage
+     *
+     * @return Promotion
+     */
+    public function setLangage(\FormationBundle\Entity\Langage $langage = null)
+    {
+        $this->langage = $langage;
+
+        return $this;
+    }
+
+    /**
+     * Get langage
+     *
+     * @return \FormationBundle\Entity\Langage
+     */
+    public function getLangage()
+    {
+        return $this->langage;
+    }
+
+    /**
+     * Add eleve
+     *
+     * @param \FormationBundle\Entity\Eleve $eleve
+     *
+     * @return Promotion
+     */
+    public function addEleve(\FormationBundle\Entity\Eleve $eleve)
+    {
+        $this->eleve[] = $eleve;
+
+        return $this;
+    }
+
+    /**
+     * Remove eleve
+     *
+     * @param \FormationBundle\Entity\Eleve $eleve
+     */
+    public function removeEleve(\FormationBundle\Entity\Eleve $eleve)
+    {
+        $this->eleve->removeElement($eleve);
+    }
+
+    /**
+     * Get eleve
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEleve()
+    {
+        return $this->eleve;
     }
 
     /**
@@ -494,6 +431,16 @@ class Promotion
     }
 
     /**
+     * Get module
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getModule()
+    {
+        return $this->module;
+    }
+
+    /**
      * Add intervenant
      *
      * @param \FormationBundle\Entity\Intervenant $intervenant
@@ -516,91 +463,14 @@ class Promotion
     {
         $this->intervenant->removeElement($intervenant);
     }
-    /**
-     * @var string
-     */
-    private $nomFormateur;
 
     /**
-     * @var string
-     */
-    private $prenomFormateur;
-
-
-    /**
-     * Set nomFormateur
+     * Get intervenant
      *
-     * @param string $nomFormateur
-     *
-     * @return Promotion
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function setNomFormateur($nomFormateur)
+    public function getIntervenant()
     {
-        $this->nomFormateur = $nomFormateur;
-
-        return $this;
-    }
-
-    /**
-     * Get nomFormateur
-     *
-     * @return string
-     */
-    public function getNomFormateur()
-    {
-        return $this->nomFormateur;
-    }
-
-    /**
-     * Set prenomFormateur
-     *
-     * @param string $prenomFormateur
-     *
-     * @return Promotion
-     */
-    public function setPrenomFormateur($prenomFormateur)
-    {
-        $this->prenomFormateur = $prenomFormateur;
-
-        return $this;
-    }
-
-    /**
-     * Get prenomFormateur
-     *
-     * @return string
-     */
-    public function getPrenomFormateur()
-    {
-        return $this->prenomFormateur;
-    }
-    /**
-     * @var \DateTime
-     */
-    private $dateDebut;
-
-
-    /**
-     * Set dateDebut
-     *
-     * @param \DateTime $dateDebut
-     *
-     * @return Promotion
-     */
-    public function setDateDebut($dateDebut)
-    {
-        $this->dateDebut = $dateDebut;
-
-        return $this;
-    }
-
-    /**
-     * Get dateDebut
-     *
-     * @return \DateTime
-     */
-    public function getDateDebut()
-    {
-        return $this->dateDebut;
+        return $this->intervenant;
     }
 }
