@@ -67,14 +67,3 @@ FormationBundle\Entity\Promotion:
                         referencedColumnName: id
                 inverseJoinColumns:
                     module_id:
-
-        intervenant:
-            targetEntity: FormationBundle\Entity\Intervenant
-            inversedBy: promotion
-            joinTable:
-                name: prom_intervenant
-                joinColumns:
-                    promotion_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    intervenant_id:

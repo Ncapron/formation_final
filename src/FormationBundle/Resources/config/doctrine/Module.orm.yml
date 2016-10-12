@@ -9,8 +9,6 @@ FormationBundle\Entity\Module:
             generator:
                 strategy: AUTO
     fields:
-        numero:
-            type: integer
         nom:
             type: string
             length: 255
