@@ -37,6 +37,50 @@ class Eleve
         return null === $this->logo ? null : $this->getUploadRootDir().'/'.$this->logo;
     }
 
+    public $filecv;
+
+    protected function getUploadDirCV()
+    {
+        return 'uploads/cv';
+    }
+
+    protected function getUploadRootDirCV()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDirCV();
+    }
+
+    public function getWebPathCV()
+    {
+        return null === $this->cv ? null : $this->getUploadDirCV().'/'.$this->cv;
+    }
+
+    public function getAbsolutePathCV()
+    {
+        return null === $this->cv ? null : $this->getUploadRootDirCV().'/'.$this->cv;
+    }
+
+    public $filecva;
+
+    protected function getUploadDirCVA()
+    {
+        return 'uploads/cva';
+    }
+
+    protected function getUploadRootDirCVA()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDirCVA();
+    }
+
+    public function getWebPathCVA()
+    {
+        return null === $this->cva ? null : $this->getUploadDirCVA().'/'.$this->cva;
+    }
+
+    public function getAbsolutePathCVA()
+    {
+        return null === $this->cva ? null : $this->getUploadRootDirCVA().'/'.$this->cva;
+    }
+
     /**
      * @ORM\PrePersist
      */
@@ -45,7 +89,18 @@ class Eleve
         if (null !== $this->file) {
             // do whatever you want to generate a unique name
             $this->logo = uniqid().'.'.$this->file->guessExtension();
-        }    }
+        }
+
+        if (null !== $this->filecv) {
+            // do whatever you want to generate a unique name
+            $this->cv = uniqid().'.'.$this->filecv->guessExtension();
+        }
+
+        if (null !== $this->filecva) {
+            // do whatever you want to generate a unique name
+            $this->cva = uniqid().'.'.$this->filecva->guessExtension();
+        }
+    }
 
     /**
      * @ORM\PrePersist
@@ -86,6 +141,28 @@ class Eleve
         $this->file->move($this->getUploadRootDir(), $this->logo);
 
         unset($this->file);
+
+        if (null === $this->filecv) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->filecv->move($this->getUploadRootDirCV(), $this->cv);
+
+        unset($this->filecv);
+
+        if (null === $this->filecva) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->filecva->move($this->getUploadRootDirCVA(), $this->cva);
+
+        unset($this->filecva);
     }
 
     /**
@@ -95,6 +172,14 @@ class Eleve
     {
         if ($file = $this->getAbsolutePath()) {
             unlink($file);
+        }
+
+        if ($filecv = $this->getAbsolutePathCV()) {
+            unlink($filecv);
+        }
+
+        if ($filecva = $this->getAbsolutePathCVA()) {
+            unlink($filecva);
         }
     }
 
@@ -451,5 +536,92 @@ class Eleve
     public function getModule()
     {
         return $this->module;
+    }
+    /**
+     * @var string
+     */
+    private $sexe;
+
+
+    /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return Eleve
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+    /**
+     * @var string
+     */
+    private $cv;
+
+    /**
+     * @var string
+     */
+    private $cva;
+
+
+    /**
+     * Set cv
+     *
+     * @param string $cv
+     *
+     * @return Eleve
+     */
+    public function setCv($cv)
+    {
+        $this->cv = $cv;
+
+        return $this;
+    }
+
+    /**
+     * Get cv
+     *
+     * @return string
+     */
+    public function getCv()
+    {
+        return $this->cv;
+    }
+
+    /**
+     * Set cva
+     *
+     * @param string $cva
+     *
+     * @return Eleve
+     */
+    public function setCva($cva)
+    {
+        $this->cva = $cva;
+
+        return $this;
+    }
+
+    /**
+     * Get cva
+     *
+     * @return string
+     */
+    public function getCva()
+    {
+        return $this->cva;
     }
 }

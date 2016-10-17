@@ -22,3 +22,7 @@ FormationBundle\Entity\Module:
         eleve:
             targetEntity: FormationBundle\Entity\Eleve
             mappedBy: module
+
+        langage:
+            targetEntity: FormationBundle\Entity\Langage
+            mappedBy: module

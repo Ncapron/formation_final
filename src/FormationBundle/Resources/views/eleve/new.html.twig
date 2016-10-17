@@ -15,10 +15,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        {{ form_label(form.file) }}
+                    <div class="input-field col s6">
                         {{ form_widget(form.file) }}
+                        {{ form_label(form.file) }}
                         {{ form_errors(form.file) }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form_widget(form.sexe) }}
+                        {{ form_errors(form.sexe) }}
                     </div>
                 </div>
                 <div class="row">
@@ -67,6 +71,18 @@
                         <div class="input-field col s12">
                             {{ form_widget(form.archive) }}
                             {{ form_errors(form.archive) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            {{ form_widget(form.filecv) }}
+                            {{ form_label(form.filecv) }}
+                            {{ form_errors(form.filecv) }}
+                        </div>
+                        <div class="input-field col s6">
+                            {{ form_widget(form.filecva) }}
+                            {{ form_label(form.filecva) }}
+                            {{ form_errors(form.filecva) }}
                         </div>
                     </div>
                 </div>

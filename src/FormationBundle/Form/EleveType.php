@@ -3,6 +3,7 @@
 namespace FormationBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,6 +19,15 @@ class EleveType extends AbstractType
         $builder
             ->add('nom')
             ->add('file', 'file', array('label' => ' ', 'required' => false))
+            ->add('sexe', ChoiceType::class, array(
+                'choices' => array(
+                    'homme' => 'Homme',
+                    'femme' => 'Femme'
+                ),
+                'required'    => true,
+                'placeholder' => 'Selectionnez votre sexe',
+                'empty_data'  => null
+            ))
             ->add('adresse')
             ->add('cp')
             ->add('ville')
@@ -30,6 +40,8 @@ class EleveType extends AbstractType
             ))
             ->add('promotion')
             ->add('archive')
+            ->add('filecv', 'file', array('label' => ' ', 'required' => false))
+            ->add('filecva', 'file', array('label' => ' ', 'required' => false))
         ;
     }
     

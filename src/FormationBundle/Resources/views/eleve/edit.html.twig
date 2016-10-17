@@ -15,10 +15,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         {{ form_label(edit_form.file) }}
                         {{ form_widget(edit_form.file) }}
                         {{ form_errors(edit_form.file) }}
+                    </div>
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.sexe) }}
+                        {{ form_widget(edit_form.sexe) }}
+                        {{ form_errors(edit_form.sexe) }}
                     </div>
                 </div>
                 <div class="row">
@@ -63,7 +68,18 @@
                         {{ form_label(edit_form.promotion) }}
                         {{ form_errors(edit_form.promotion) }}
                     </div>
-                    <div class="container">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                {{ form_widget(edit_form.filecv) }}
+                                {{ form_label(edit_form.filecv) }}
+                                {{ form_errors(edit_form.filecv) }}
+                            </div>
+                            <div class="input-field col s6">
+                                {{ form_widget(edit_form.filecva) }}
+                                {{ form_label(edit_form.filecva) }}
+                                {{ form_errors(edit_form.filecva) }}
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="checkbox">
                                 <label>
@@ -73,7 +89,6 @@
                                 {{ form_errors(edit_form.archive) }}
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
