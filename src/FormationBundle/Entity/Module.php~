@@ -169,4 +169,43 @@ class Module
     {
         return $this->eleve;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $langage;
+
+
+    /**
+     * Add langage
+     *
+     * @param \FormationBundle\Entity\Langage $langage
+     *
+     * @return Module
+     */
+    public function addLangage(\FormationBundle\Entity\Langage $langage)
+    {
+        $this->langage[] = $langage;
+
+        return $this;
+    }
+
+    /**
+     * Remove langage
+     *
+     * @param \FormationBundle\Entity\Langage $langage
+     */
+    public function removeLangage(\FormationBundle\Entity\Langage $langage)
+    {
+        $this->langage->removeElement($langage);
+    }
+
+    /**
+     * Get langage
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLangage()
+    {
+        return $this->langage;
+    }
 }

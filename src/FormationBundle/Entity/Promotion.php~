@@ -439,4 +439,38 @@ class Promotion
     {
         return $this->module;
     }
+
+    /**
+     * Add intervenant
+     *
+     * @param \FormationBundle\Entity\Intervenant $intervenant
+     *
+     * @return Promotion
+     */
+    public function addIntervenant(\FormationBundle\Entity\Intervenant $intervenant)
+    {
+        $this->intervenant[] = $intervenant;
+
+        return $this;
+    }
+
+    /**
+     * Remove intervenant
+     *
+     * @param \FormationBundle\Entity\Intervenant $intervenant
+     */
+    public function removeIntervenant(\FormationBundle\Entity\Intervenant $intervenant)
+    {
+        $this->intervenant->removeElement($intervenant);
+    }
+
+    /**
+     * Get intervenant
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIntervenant()
+    {
+        return $this->intervenant;
+    }
 }

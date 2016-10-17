@@ -9,16 +9,14 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Numero</th>
-                        <th class="nom">Nom</th>
+                        <th>Nom</th>
                         <th class="action">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                 {% for module in modules %}
                     <tr>
-                        <td>{{ module.numero }}</td>
-                        <td class="nom">{{ module.nom }}</td>
+                        <td>{{ module.nom }}</td>
                         <td>
                             <ul>
                                 <li class="action">

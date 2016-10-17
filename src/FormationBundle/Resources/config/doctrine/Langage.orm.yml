@@ -13,3 +13,15 @@ FormationBundle\Entity\Langage:
             type: string
             length: 255
     lifecycleCallbacks: {  }
+
+    manyToMany:
+        module:
+            targetEntity: FormationBundle\Entity\Module
+            inversedBy: langage
+            joinTable:
+                name: langage_module
+                joinColumns:
+                    langage_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    module_id:
