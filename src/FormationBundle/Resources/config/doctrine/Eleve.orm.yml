@@ -23,6 +23,9 @@ FormationBundle\Entity\Eleve:
         ville:
             type: string
             length: 255
+        sexe:
+            type: string
+            length: 6
         tel:
             type: integer
         mail:
@@ -33,6 +36,12 @@ FormationBundle\Entity\Eleve:
         archive:
             type: boolean
             nullable: true
+        cv:
+            type: string
+            length: 255
+        cva:
+            type: string
+            length: 255
     lifecycleCallbacks:
       prePersist: [ preUpload, setCreatedAtValue, setExpiresAtValue ]
       preUpdate: [ preUpload, setUpdatedAtValue ]

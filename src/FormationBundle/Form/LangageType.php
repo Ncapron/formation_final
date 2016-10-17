@@ -16,6 +16,7 @@ class LangageType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('module')
         ;
     }
     
