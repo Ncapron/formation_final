@@ -7,8 +7,9 @@ namespace FormationBundle\Entity;
  */
 class Note
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -17,11 +18,21 @@ class Note
      */
     private $note;
 
+    /**
+     * @var \FormationBundle\Entity\Promotion
+     */
+    private $promotion;
+
+    /**
+     * @var \FormationBundle\Entity\Eleve
+     */
+    private $eleve;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -51,16 +62,6 @@ class Note
     {
         return $this->note;
     }
-    /**
-     * @var \FormationBundle\Entity\Promotion
-     */
-    private $promotion;
-
-    /**
-     * @var \FormationBundle\Entity\Eleve
-     */
-    private $eleve;
-
 
     /**
      * Set promotion

@@ -54,6 +54,24 @@
                             {{ form_widget(form.module) }}
                             {{ form_label(form.module) }}
                             {{ form_errors(form.module) }}
+                            <!-- Trigger/Open The Modal -->
+                            <button id="myBtn">+</button>
+
+                            <!-- The Modal -->
+                            <div id="myModal" class="modal">
+
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <span class="close">x</span>
+                                    <div class="modal-body">
+                                        {{ render(controller('FormationBundle:Module:new')) }}
+                                        <div class="edit_admin">
+                                            <input class="btn btn-default edit_admin"  type="submit" value="Ajouter" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -61,7 +79,26 @@
                             {{ form_widget(form.eleve) }}
                             {{ form_label(form.eleve) }}
                             {{ form_errors(form.eleve) }}
+                            <!-- Trigger/Open The Modal -->
+                            <button id="myBtn1">+</button>
+
+                            <!-- The Modal -->
+                            <div id="myModaleleve" class="modal">
+
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <span class="close">x</span>
+                                    <div class="modal-body">
+                                        {{ render(controller('FormationBundle:Eleve:new')) }}
+                                        <div class="edit_admin">
+                                            <input class="btn btn-default edit_admin"  type="submit" value="Ajouter" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
                     </div>
                     <div class="row-hidden">
                         <div class="input-field col s12">
