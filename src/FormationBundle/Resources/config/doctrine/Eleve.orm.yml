@@ -12,36 +12,47 @@ FormationBundle\Entity\Eleve:
         nom:
             type: string
             length: 255
+            nullable: true
         logo:
             type: string
             length: 255
+            nullable: true
         adresse:
             type: string
             length: 255
+            nullable: true
         cp:
             type: integer
+            nullable: true
         ville:
             type: string
             length: 255
+            nullable: true
         sexe:
             type: string
             length: 6
+            nullable: true
         tel:
             type: integer
+            nullable: true
         mail:
             type: string
             length: 255
+            nullable: true
         datenaissance:
             type: date
+            nullable: true
         archive:
             type: boolean
             nullable: true
         cv:
             type: string
             length: 255
+            nullable: true
         cva:
             type: string
             length: 255
+            nullable: true
     lifecycleCallbacks:
       prePersist: [ preUpload, setCreatedAtValue, setExpiresAtValue ]
       preUpdate: [ preUpload, setUpdatedAtValue ]

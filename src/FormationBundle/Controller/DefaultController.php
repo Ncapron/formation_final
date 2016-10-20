@@ -16,7 +16,8 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $modules = $em->getRepository('FormationBundle:Module')->findAll();
+        $module = $em->getRepository('FormationBundle:Module')->findById($id);
+        $promotion = $em->getRepository('FormationBundle:Promotion')->findBy($id);
         $eleve = $em->getRepository('FormationBundle:Eleve')->findById($id);
 
         $note = new Note();
@@ -39,10 +40,11 @@ class DefaultController extends Controller
         }
 
         return $this->render('FormationBundle:Default:index.html.twig', array(
-            'modules' => $modules,
+            'module' => $module,
             'eleve' => $eleve,
             'note' => $note,
             'form' => $form->createView(),
+            'promotion' => $promotion,
         ));
     }
 }

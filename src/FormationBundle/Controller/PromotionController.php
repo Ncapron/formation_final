@@ -44,7 +44,7 @@ class PromotionController extends Controller
             $em->persist($promotion);
             $em->flush();
 
-            return $this->redirectToRoute('promotion_show', array('id' => $promotion->getId()));
+            return $this->redirectToRoute('promotion_index', array('id' => $promotion->getId()));
         }
 
         return $this->render('FormationBundle:promotion:new.html.twig', array(
@@ -92,7 +92,7 @@ class PromotionController extends Controller
             $em->persist($promotion);
             $em->flush();
 
-            return $this->redirectToRoute('promotion_edit', array('id' => $promotion->getId()));
+            return $this->redirectToRoute('promotion_index', array('id' => $promotion->getId()));
         }
 
         return $this->render('FormationBundle:promotion:edit.html.twig', array(

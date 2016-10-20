@@ -24,7 +24,7 @@ class EleveType extends AbstractType
                     'homme' => 'Homme',
                     'femme' => 'Femme'
                 ),
-                'required'    => true,
+                'required'    => false,
                 'placeholder' => 'Selectionnez votre sexe',
                 'empty_data'  => null
             ))

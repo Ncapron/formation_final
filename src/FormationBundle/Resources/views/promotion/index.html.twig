@@ -3,9 +3,9 @@
 {% block body %}
 
     <h1 class="titre">Liste des promotions</h1>
-    <div class="container-fluid background">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col m8 offset-m2">
+            <div class="col m10 offset-m2">
                 {% for promotion in promotions %}
                     {% if promotion.archive == false %}
                     <figure class="figpromo">

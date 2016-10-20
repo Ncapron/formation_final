@@ -49,29 +49,21 @@
                             {{ form_errors(form.dateFin) }}
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="input-field col s12">
                             {{ form_widget(form.module) }}
                             {{ form_label(form.module) }}
                             {{ form_errors(form.module) }}
-                            <!-- Trigger/Open The Modal -->
-                            <button id="myBtn">+</button>
+                            <!-- Modal Trigger -->
+                            <a class="btn modal-trigger" href="#modal2">+</a>
 
-                            <!-- The Modal -->
-                            <div id="myModal" class="modal">
-
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <span class="close">x</span>
-                                    <div class="modal-body">
-                                        {{ render(controller('FormationBundle:Module:new')) }}
-                                        <div class="edit_admin">
-                                            <input class="btn btn-default edit_admin"  type="submit" value="Ajouter" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                            {#<!-- Modal Structure -->#}
+                            {#<div id="modal2" class="modal">#}
+                                {#<div class="modal-content">#}
+                                    {#{{ render(controller('FormationBundle:Module:new')) }}#}
+                                {#</div>#}
+                            {#</div>#}
                         </div>
                     </div>
                     <div class="row">
@@ -79,26 +71,16 @@
                             {{ form_widget(form.eleve) }}
                             {{ form_label(form.eleve) }}
                             {{ form_errors(form.eleve) }}
-                            <!-- Trigger/Open The Modal -->
-                            <button id="myBtn1">+</button>
+                            <!-- Modal Trigger -->
+                            <a class="btn modal-trigger" href="#modal1">+</a>
 
-                            <!-- The Modal -->
-                            <div id="myModaleleve" class="modal">
-
-                                <!-- Modal content -->
+                            <!-- Modal Structure -->
+                            <div id="modal1" class="modal">
                                 <div class="modal-content">
-                                    <span class="close">x</span>
-                                    <div class="modal-body">
-                                        {{ render(controller('FormationBundle:Eleve:new')) }}
-                                        <div class="edit_admin">
-                                            <input class="btn btn-default edit_admin"  type="submit" value="Ajouter" />
-                                        </div>
-                                    </div>
+                                    {{ render(controller('FormationBundle:Eleve:new')) }}
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                     <div class="row-hidden">
                         <div class="input-field col s12">
@@ -109,11 +91,11 @@
                 </div>
             </div>
         </div>
-        <div class="button-centre">
-            <input class="btn btn-default edit_admin" type="submit" value="Créer" />
-        </div>
-    {{ form_end(form) }}
 
+    <div class="button-centre">
+        <input class="btn btn-default edit_admin" type="submit" value="Créer" />
+    </div>
+    {{ form_end(form) }}
     <ul>
         <li class="button-centre">
             <a class="btn btn-default edit_admin" href="{{ path('promotion_index') }}">Retourner à la liste des promotions</a>
