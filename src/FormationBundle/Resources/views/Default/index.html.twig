@@ -10,13 +10,23 @@
 <div class="container">
     <div class="col s12 m10">
 	<table class="striped highlight">
-      <thead  style="text-align: right">
+      <thead>
         <tr>
             <th>module</th>
-            <th style="text-align: center;" colspan="2">Semaine 1</th>
-            <th style="text-align: center;" colspan="2">Semaine 2</th>
-            <th style="text-align: center;" colspan="2">Semaine 3</th>
-            <th style="text-align: center;" colspan="2">Semaine 4</th>
+            {% for promotion in promotion %}
+                {% if promotion.semaines == 4 %}
+                    <th style="text-align: center" colspan="2">Semaine 1</th>
+                    <th colspan="2">Semaine 2</th>
+                    <th colspan="2">Semaine 3</th>
+                    <th colspan="2">Semaine 4</th>
+                {% elseif promotion.semaines == 5 %}
+                    <th style="text-align: center" colspan="2">Semaine 1</th>
+                    <th colspan="2">Semaine 2</th>
+                    <th colspan="2">Semaine 3</th>
+                    <th colspan="2">Semaine 4</th>
+                    <th colspan="2">Semaine 5</th>
+                {% endif %}
+            {% endfor %}
             {#<th style="text-align: center;" colspan="2">8</th>#}
             {#<th style="text-align: center;" colspan="2">9</th>#}
             {#<th style="text-align: center;" colspan="2">10</th>#}
@@ -30,15 +40,30 @@
       </thead>
       <tbody>
         <tr>
-          <td>numero</td>
-          <td>nom</td>
-          <td>cours</td>
-          <td>tp</td>
-          <td>cours</td>
-          <td>tp</td>
-          <td>cours</td>
-          <td>tp</td>
-          <td>cours</td>
+            <td>nom</td>
+            {% for promotion in promotion %}
+                {% if promotion.semaines == 4 %}
+            <td style="text-align: center">tp</td>
+            <td style="text-align: center">cours</td>
+            <td>tp</td>
+            <td>cours</td>
+            <td>tp</td>
+            <td>cours</td>
+            <td>tp</td>
+            <td>cours</td>
+                {% elseif promotion.semaines == 5 %}
+                    <td style="text-align: center">tp</td>
+                    <td style="text-align: center; border-right:1px solid black ">cours</td>
+                    <td>tp</td>
+                    <td>cours</td>
+                    <td>tp</td>
+                    <td>cours</td>
+                    <td>tp</td>
+                    <td>cours</td>
+                    <td>tp</td>
+                    <td>cours</td>
+                {% endif %}
+            {% endfor %}
           {#<td>tp</td>#}
           {#<td>9</td>#}
           {#<td>10</td>#}
@@ -57,12 +82,13 @@
           {#<td>23</td>#}
           {#<td>24</td>#}
         <tr>
-        {% for module in modules %}
+        {% for module in module %}
         	<tr>
-	        	<td>{{ module.numero }}</td>
 	        	<td>{{ module.nom }}</td>
-                <td>
-                  <select name="note[]">
+            {% for promotion in promotion %}
+                {% if promotion.semaines == 4 %}
+                <td style="border-right:1px solid black">
+                  <select style="" name="note[]">
                     <option value="nd">Non défini</option>
                     <option value="A">A</option>
                     <option value="EA">EA</option>
@@ -117,8 +143,98 @@
                     <option value="NA">NA</option>
                   </select>
                 </td>
-	        </tr>
-
+                <td>
+                    <select name="note[]">
+                        <option value="nd">Non défini</option>
+                        <option value="A">A</option>
+                        <option value="EA">EA</option>
+                        <option value="NA">NA</option>
+                    </select>
+                </td>
+                {% elseif promotion.semaines == 5 %}
+                    <td >
+                        <select style="text-align: center" name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
         {% endfor %}
       </tbody>
     </table>
