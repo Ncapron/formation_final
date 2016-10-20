@@ -1,0 +1,16 @@
+FormationBundle\Entity\ElevePromo:
+    type: entity
+    table: null
+    repositoryClass: FormationBundle\Repository\ElevePromoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToOne:
+        eleve:
+            targetEntity: FormationBundle\Entity\Eleve
+        promotion:
+            targetEntity: FormationBundle\Entity\Promotion
+    lifecycleCallbacks: {  }
