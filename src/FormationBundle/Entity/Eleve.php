@@ -12,7 +12,7 @@ class Eleve
 
     public function __toString()
     {
-        return (string) $this->getNom();
+        return $this->getNom();
     }
 
     public $file;
