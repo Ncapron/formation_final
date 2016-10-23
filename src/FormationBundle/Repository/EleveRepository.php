@@ -12,4 +12,19 @@ use Doctrine\ORM\EntityRepository;
  */
 class EleveRepository extends EntityRepository
 {
+
+    public function findByModule($module){
+        $query = $this->createQueryBuilder('a')
+            ->select('a')
+            ->leftJoin('a.module', 'c')
+            ->addSelect('c');
+
+        $query = $query->add('where', $query->expr()->in('c', ':c'))
+            ->setParameter('c', $module)
+            ->getQuery()
+            ->getResult();
+
+        return $query;
+    }
+    
 }

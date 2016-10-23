@@ -19,17 +19,30 @@ class DefaultController extends Controller
         $module = $em->getRepository('FormationBundle:Module')->findById($id);
         $promotion = $em->getRepository('FormationBundle:Promotion')->findById($id);
         $eleve = $em->getRepository('FormationBundle:Eleve')->findById($id);
+        $notes = $em->getRepository('FormationBundle:Note')->findBy(array(
+            'eleve' => $eleve,
+            'promotion' => $promotion,
+            ));
 
         $note = new Note();
         $form = $this->createForm('FormationBundle\Form\NoteType', $note);
         $form->handleRequest($request);
-
+        //var_dump($notes);die;
         if ($form->isSubmitted())
         {
-            //var_dump($_POST["note"]);die;
+            foreach ($notes as $n) {
+                $del = $this->createDeleteForm($n);
+                $del->handleRequest($request);
+
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($n);
+                $em->flush();
+            }
             $em = $this->getDoctrine()->getManager();
             for ($i=0; $i < count($_POST['note']) - 1; $i++)
             {
+                $note->setEleveId($eleve->getId());
+                $note->setPromoId($promotion->getId());
                 $note->setNote($_POST['note'][$i]);
                 $em->persist($note);
                 $em->flush();
@@ -43,6 +56,7 @@ class DefaultController extends Controller
             'module' => $module,
             'eleve' => $eleve,
             'note' => $note,
+            'notes'=>$notes,
             'form' => $form->createView(),
             'promotion' => $promotion,
         ));

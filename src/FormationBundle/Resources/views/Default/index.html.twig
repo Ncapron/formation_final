@@ -7,8 +7,8 @@
 {% endfor %}
 
 {{ form_start(form) }}
-<div class="container">
-    <div class="col s12 m10">
+<div class="container-fluid">
+    <div class="col sm-12">
 	<table class="striped highlight">
       <thead>
         <tr>
@@ -88,8 +88,8 @@
             {% for promotion in promotion %}
                 {% if promotion.semaines == 4 %}
                 <td style="border-right:1px solid black">
-                  <select style="" name="note[]">
-                    <option value="nd">Non défini</option>
+                  <select name="note[]">
+                    <option style="text-align: center" value="nd">Non défini</option>
                     <option value="A">A</option>
                     <option value="EA">EA</option>
                     <option value="NA">NA</option>

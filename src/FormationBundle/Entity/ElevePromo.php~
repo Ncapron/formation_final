@@ -1,0 +1,25 @@
+<?php
+
+namespace FormationBundle\Entity;
+
+/**
+ * ElevePromo
+ */
+class ElevePromo
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

@@ -1,0 +1,24 @@
+elevepromo_index:
+    path:     /
+    defaults: { _controller: "FormationBundle:ElevePromo:index" }
+    methods:  GET
+
+elevepromo_show:
+    path:     /{id}/show
+    defaults: { _controller: "FormationBundle:ElevePromo:show" }
+    methods:  GET
+
+elevepromo_new:
+    path:     /new
+    defaults: { _controller: "FormationBundle:ElevePromo:new" }
+    methods:  [GET, POST]
+
+elevepromo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FormationBundle:ElevePromo:edit" }
+    methods:  [GET, POST]
+
+elevepromo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FormationBundle:ElevePromo:delete" }
+    methods:  DELETE
