@@ -2,9 +2,7 @@
 
 {% block body %}
 
-{% for eleve in eleve %}
   <p class="titre">{{ eleve.nom }}</p>
-{% endfor %}
 
 {{ form_start(form) }}
 <div class="container-fluid">
@@ -242,4 +240,62 @@
 <div class="button-centre">
   <input class="btn btn-default edit_admin" type="submit" value="Valider" />
 </div>
+
+
+        <p class="titre">{{ eleve.nom }}</p>
+
+    {{ form_start(form) }}
+    <div class="container-fluid">
+    <div class="col sm-12">
+        <table class="striped highlight">
+            <thead>
+            <tr>
+                <th>module</th>
+                    {% for i in 1..promotion.semaines %}
+                        <th style="text-align: center" colspan="2">Semaine {{ i }}</th>
+                    {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>nom</td>
+                    {% for i in 1..promotion.semaines %}
+                        <td style="text-align: center">tp</td>
+                        <td style="text-align: center">cours</td>
+                    {% endfor %}
+
+            <tr>
+                {% for module in module %}
+            <tr>
+                <td>{{ module.nom }}</td>
+                {% if notes is empty %}
+                {% for i in 1..promotion.semaines*2 %}
+                    <td style="border-right:1px solid black">
+                        <select style="" name="note[]">
+                            <option value="nd">Non défini</option>
+                            <option value="A">A</option>
+                            <option value="EA">EA</option>
+                            <option value="NA">NA</option>
+                        </select>
+                    </td>
+                {% endfor %}
+                    {% else %}
+                    {% for note in notes %}
+                        <td style="border-right:1px solid black">
+                            <select style="" name="note[]">
+                                <option {% if note.note == 'nd' %} selected="selected"{% endif %} value="nd">Non défini</option>
+                                <option {% if note.note == 'A' %} selected="selected"{% endif %} value="A">A</option>
+                                <option {% if note.note == 'EA' %} selected="selected"{% endif %} value="EA">EA</option>
+                                <option {% if note.note == 'NA' %} selected="selected"{% endif %} value="NA">NA</option>
+                            </select>
+                        </td>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="button-centre">
+        <input class="btn btn-default edit_admin" type="submit" value="Valider" />
+    </div>
 {% endblock %}

@@ -17,8 +17,8 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $module = $em->getRepository('FormationBundle:Module')->findById($id);
-        $promotion = $em->getRepository('FormationBundle:Promotion')->findById($id);
-        $eleve = $em->getRepository('FormationBundle:Eleve')->findById($id);
+        $promotion = $em->getRepository('FormationBundle:Promotion')->findOneBy(array('id' => $id));
+        $eleve = $em->getRepository('FormationBundle:Eleve')->findOneBy(array('id' => $id));
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array(
             'eleve' => $eleve,
             'promotion' => $promotion,
@@ -34,22 +34,23 @@ class DefaultController extends Controller
                 $del = $this->createDeleteForm($n);
                 $del->handleRequest($request);
 
-                $em = $this->getDoctrine()->getManager();
+
                 $em->remove($n);
                 $em->flush();
             }
-            $em = $this->getDoctrine()->getManager();
-            for ($i=0; $i < count($_POST['note']) - 1; $i++)
+
+            for ($i=0; $i < count($_POST['note']); $i++)
             {
-                $note->setEleveId($eleve->getId());
-                $note->setPromoId($promotion->getId());
+                $note = new Note();
+                $note->setEleve($eleve);
+                $note->setPromotion($promotion);
                 $note->setNote($_POST['note'][$i]);
                 $em->persist($note);
                 $em->flush();
             }
 
 
-            return $this->redirectToRoute('formation_homepage', array('id' => $note->getId()));
+            return $this->redirectToRoute('promotion_index', array('id' => $note->getId()));
         }
 
         return $this->render('FormationBundle:Default:index.html.twig', array(
@@ -60,5 +61,14 @@ class DefaultController extends Controller
             'form' => $form->createView(),
             'promotion' => $promotion,
         ));
+    }
+
+    private function createDeleteForm(Note $note)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('note_delete', array('id' => $note->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+            ;
     }
 }
