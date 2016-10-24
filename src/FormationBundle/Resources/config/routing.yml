@@ -27,9 +27,6 @@ formation_commentaire:
     prefix:   /commentaire
 
 
-
-
-
 formation_homepage:
     path:     /{id}/eletable
     defaults: { _controller: FormationBundle:Default:index }

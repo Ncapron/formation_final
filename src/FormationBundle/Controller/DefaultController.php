@@ -16,8 +16,9 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $module = $em->getRepository('FormationBundle:Module')->findById($id);
+
         $promotion = $em->getRepository('FormationBundle:Promotion')->findOneBy(array('id' => $id));
+        $module = $em->getRepository('FormationBundle:Module')->findAll(array('promotion' =>$promotion));
         $eleve = $em->getRepository('FormationBundle:Eleve')->findOneBy(array('id' => $id));
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array(
             'eleve' => $eleve,
