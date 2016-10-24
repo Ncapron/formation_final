@@ -44,7 +44,7 @@ class ModuleController extends Controller
             $em->persist($module);
             $em->flush();
 
-            return $this->redirectToRoute('module_show', array('id' => $module->getId()));
+            return $this->redirectToRoute('module_index', array('id' => $module->getId()));
         }
 
         return $this->render('FormationBundle:module:new.html.twig', array(

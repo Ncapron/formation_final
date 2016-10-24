@@ -20,22 +20,24 @@
                     {% for eleves in promo %}
 
                         {% for eleve in eleves.eleve %}
-                        <tr>
-                            <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}">{{ eleve.nom }}</a></td>
-                            <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
-                            <td>{{ eleve.tel }}</td>
-                            <td>
-                                <ul>
-                                    <li>
-                                        <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">Détails</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Editer</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                            {% endfor %}
+                            {% if eleve.archive == false %}
+                                <tr>
+                                    <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}">{{ eleve.nom }}</a></td>
+                                    <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
+                                    <td>{{ eleve.tel }}</td>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">Détails</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Editer</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
                     {% endfor %}
                     </tbody>
                 </table>

@@ -50,7 +50,7 @@ class DefaultController extends Controller
             }
 
 
-            return $this->redirectToRoute('promotion_index', array('id' => $note->getId()));
+            return $this->redirectToRoute('eleve_index', array('id' => $note->getId()));
         }
 
         return $this->render('FormationBundle:Default:index.html.twig', array(

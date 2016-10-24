@@ -20,11 +20,6 @@
                         {{ form_widget(edit_form.file) }}
                         {{ form_errors(edit_form.file) }}
                     </div>
-                    <div class="input-field col s6">
-                        {{ form_widget(edit_form.semaines) }}
-                        {{ form_label(edit_form.semaines) }}
-                        {{ form_errors(edit_form.semaines) }}
-                    </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
@@ -32,8 +27,6 @@
                         {{ form_widget(edit_form.formateur) }}
                         {{ form_errors(edit_form.formateur) }}
                     </div>
-                </div>
-                <div class="row">
                     <div class="input-field col s6">
                         {{ form_widget(edit_form.langage) }}
                         {{ form_label(edit_form.langage) }}
@@ -75,6 +68,13 @@
                             </label>
                             {{ form_errors(edit_form.archive) }}
                         </div>
+                    </div>
+                </div>
+                <div class="row-hiden">
+                    <div class="input-field col s6">
+                        {{ form_label(edit_form.semaines) }}
+                        {{ form_widget(edit_form.semaines) }}
+                        {{ form_errors(edit_form.semaines) }}
                     </div>
                 </div>
             </div>

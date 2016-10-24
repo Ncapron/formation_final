@@ -19,3 +19,5 @@ FormationBundle\Entity\Note:
             targetEntity: FormationBundle\Entity\Promotion
         eleve:
             targetEntity: FormationBundle\Entity\Eleve
+        module:
+            targetEntity: FormationBundle\Entity\Module

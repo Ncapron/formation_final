@@ -125,4 +125,16 @@ class LangageController extends Controller
             ->getForm()
         ;
     }
+
+    public function langagemoduleAction(Langage $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $langue = $em->getRepository('FormationBundle:Langage')->findById($id);
+
+
+
+        return $this->render('FormationBundle:promotion:listeelevprom.html.twig', array(
+            'langue' => $langue,
+        ));
+    }
 }

@@ -110,4 +110,33 @@ class Note
     {
         return $this->eleve;
     }
+    /**
+     * @var \FormationBundle\Entity\Module
+     */
+    private $module;
+
+
+    /**
+     * Set module
+     *
+     * @param \FormationBundle\Entity\Module $module
+     *
+     * @return Note
+     */
+    public function setModule(\FormationBundle\Entity\Module $module = null)
+    {
+        $this->module = $module;
+
+        return $this;
+    }
+
+    /**
+     * Get module
+     *
+     * @return \FormationBundle\Entity\Module
+     */
+    public function getModule()
+    {
+        return $this->module;
+    }
 }
