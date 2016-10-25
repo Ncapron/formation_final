@@ -17,6 +17,7 @@ class ModuleType extends AbstractType
         $builder
             ->add('nom')
             ->add('promotion')
+            ->add('eleve')
         ;
     }
     

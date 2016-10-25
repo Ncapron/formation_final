@@ -53,6 +53,10 @@ FormationBundle\Entity\Eleve:
             type: string
             length: 255
             nullable: true
+        etude:
+            type: string
+            length: 10
+            nullable: true
     lifecycleCallbacks:
       prePersist: [ preUpload, setCreatedAtValue, setExpiresAtValue ]
       preUpdate: [ preUpload, setUpdatedAtValue ]
@@ -75,3 +79,4 @@ FormationBundle\Entity\Eleve:
                         referencedColumnName: id
                 inverseJoinColumns:
                     module_id:
+                        referencedColumnName: id

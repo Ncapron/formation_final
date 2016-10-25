@@ -13,23 +13,29 @@ FormationBundle\Entity\Promotion:
             type: string
             length: 255
             unique: true
+            nullable: true
         logo:
             type: string
             length: 255
+            nullable: true
         formateur:
             type: string
             length: 255
             nullable: true
             column: prenom_form
+            nullable: true
         semaines:
             type: string
             length: 255
+            nullable: true
         dateDebut:
             type: date
             column: date_deb
+            nullable: true
         dateFin:
             type: date
             column: date_fin
+            nullable: true
         archive:
             type: boolean
             nullable: true

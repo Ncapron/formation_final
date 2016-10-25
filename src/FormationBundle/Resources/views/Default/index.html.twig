@@ -18,7 +18,7 @@
                     {% for i in 1..promotion.semaines %}
                         <th style="text-align: center" colspan="2">Semaine {{ i }}</th>
                     {% endfor %}
-                        <th>Bilan</th>
+                        <th style="text-align: center">Bilan</th>
             </tr>
             </thead>
             <tbody>
@@ -58,9 +58,42 @@
                     {% endfor %}
                 {% endif %}
             {% endfor %}
+                <td style="border-right:1px solid black">
+                    <select name="note[]">
+                        <option value="nd">ND</option>
+                        <option value="A">A</option>
+                        <option value="EA">EA</option>
+                        <option value="NA">NA</option>
+                    </select>
+                </td>
             </tbody>
         </table>
     </div>
+    <h1>Commentaire creation</h1>
+
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col m8">
+                <div class="row">
+                    <div class="input-field col s6">
+                        {{ form_widget(form.commentaire) }}
+                        {{ form_label(form.commentaire) }}
+                        {{ form_errors(form.commentaire) }}
+                    </div>
+                </div>
+                <input type="submit" value="Create" />
+            </div>
+        </div>
+    </div>
+
+
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('commentaire_index') }}">Back to the list</a>
+        </li>
+    </ul>
     <div class="button-centre">
         <input class="btn btn-default edit_admin" type="submit" value="Valider" />
     </div>

@@ -13,3 +13,9 @@ FormationBundle\Entity\Commentaire:
             type: string
             length: 255
     lifecycleCallbacks: {  }
+
+    manyToMany:
+        note:
+            targetEntity: FormationBundle\Entity\Note
+            mappedBy: commentaire
+

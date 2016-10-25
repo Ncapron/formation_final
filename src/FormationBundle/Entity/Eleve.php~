@@ -184,8 +184,9 @@ class Eleve
     }
 
     //generate
+    
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -194,39 +195,6 @@ class Eleve
      */
     private $nom;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     * @return Eleve
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
     /**
      * @var string
      */
@@ -248,6 +216,11 @@ class Eleve
     private $ville;
 
     /**
+     * @var string
+     */
+    private $sexe;
+
+    /**
      * @var integer
      */
     private $tel;
@@ -262,11 +235,79 @@ class Eleve
      */
     private $datenaissance;
 
+    /**
+     * @var boolean
+     */
+    private $archive;
+
+    /**
+     * @var string
+     */
+    private $cv;
+
+    /**
+     * @var string
+     */
+    private $cva;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $promotion;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $module;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->promotion = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->module = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Eleve
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
 
     /**
      * Set logo
      *
      * @param string $logo
+     *
      * @return Eleve
      */
     public function setLogo($logo)
@@ -279,7 +320,7 @@ class Eleve
     /**
      * Get logo
      *
-     * @return string 
+     * @return string
      */
     public function getLogo()
     {
@@ -290,6 +331,7 @@ class Eleve
      * Set adresse
      *
      * @param string $adresse
+     *
      * @return Eleve
      */
     public function setAdresse($adresse)
@@ -302,7 +344,7 @@ class Eleve
     /**
      * Get adresse
      *
-     * @return string 
+     * @return string
      */
     public function getAdresse()
     {
@@ -313,6 +355,7 @@ class Eleve
      * Set cp
      *
      * @param integer $cp
+     *
      * @return Eleve
      */
     public function setCp($cp)
@@ -325,7 +368,7 @@ class Eleve
     /**
      * Get cp
      *
-     * @return integer 
+     * @return integer
      */
     public function getCp()
     {
@@ -336,6 +379,7 @@ class Eleve
      * Set ville
      *
      * @param string $ville
+     *
      * @return Eleve
      */
     public function setVille($ville)
@@ -348,200 +392,12 @@ class Eleve
     /**
      * Get ville
      *
-     * @return string 
+     * @return string
      */
     public function getVille()
     {
         return $this->ville;
     }
-
-    /**
-     * Set tel
-     *
-     * @param integer $tel
-     * @return Eleve
-     */
-    public function setTel($tel)
-    {
-        $this->tel = $tel;
-
-        return $this;
-    }
-
-    /**
-     * Get tel
-     *
-     * @return integer 
-     */
-    public function getTel()
-    {
-        return $this->tel;
-    }
-
-    /**
-     * Set mail
-     *
-     * @param string $mail
-     * @return Eleve
-     */
-    public function setMail($mail)
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    /**
-     * Get mail
-     *
-     * @return string 
-     */
-    public function getMail()
-    {
-        return $this->mail;
-    }
-
-    /**
-     * Set datenaissance
-     *
-     * @param \DateTime $datenaissance
-     * @return Eleve
-     */
-    public function setDatenaissance($datenaissance)
-    {
-        $this->datenaissance = $datenaissance;
-
-        return $this;
-    }
-
-    /**
-     * Get datenaissance
-     *
-     * @return \DateTime 
-     */
-    public function getDatenaissance()
-    {
-        return $this->datenaissance;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $promotion;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->promotion = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add promotion
-     *
-     * @param \FormationBundle\Entity\Promotion $promotion
-     * @return Eleve
-     */
-    public function addPromotion(\FormationBundle\Entity\Promotion $promotion)
-    {
-        $this->promotion[] = $promotion;
-
-        return $this;
-    }
-
-    /**
-     * Remove promotion
-     *
-     * @param \FormationBundle\Entity\Promotion $promotion
-     */
-    public function removePromotion(\FormationBundle\Entity\Promotion $promotion)
-    {
-        $this->promotion->removeElement($promotion);
-    }
-
-    /**
-     * Get promotion
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPromotion()
-    {
-        return $this->promotion;
-    }
-
-    /**
-     * @var boolean
-     */
-    private $archive;
-
-
-    /**
-     * Set archive
-     *
-     * @param boolean $archive
-     *
-     * @return Eleve
-     */
-    public function setArchive($archive)
-    {
-        $this->archive = $archive;
-
-        return $this;
-    }
-
-    /**
-     * Get archive
-     *
-     * @return boolean
-     */
-    public function getArchive()
-    {
-        return $this->archive;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $module;
-
-
-    /**
-     * Add module
-     *
-     * @param \FormationBundle\Entity\Module $module
-     *
-     * @return Eleve
-     */
-    public function addModule(\FormationBundle\Entity\Module $module)
-    {
-        $this->module[] = $module;
-
-        return $this;
-    }
-
-    /**
-     * Remove module
-     *
-     * @param \FormationBundle\Entity\Module $module
-     */
-    public function removeModule(\FormationBundle\Entity\Module $module)
-    {
-        $this->module->removeElement($module);
-    }
-
-    /**
-     * Get module
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getModule()
-    {
-        return $this->module;
-    }
-    /**
-     * @var string
-     */
-    private $sexe;
-
 
     /**
      * Set sexe
@@ -566,16 +422,102 @@ class Eleve
     {
         return $this->sexe;
     }
-    /**
-     * @var string
-     */
-    private $cv;
 
     /**
-     * @var string
+     * Set tel
+     *
+     * @param integer $tel
+     *
+     * @return Eleve
      */
-    private $cva;
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
 
+        return $this;
+    }
+
+    /**
+     * Get tel
+     *
+     * @return integer
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Eleve
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set datenaissance
+     *
+     * @param \DateTime $datenaissance
+     *
+     * @return Eleve
+     */
+    public function setDatenaissance($datenaissance)
+    {
+        $this->datenaissance = $datenaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get datenaissance
+     *
+     * @return \DateTime
+     */
+    public function getDatenaissance()
+    {
+        return $this->datenaissance;
+    }
+
+    /**
+     * Set archive
+     *
+     * @param boolean $archive
+     *
+     * @return Eleve
+     */
+    public function setArchive($archive)
+    {
+        $this->archive = $archive;
+
+        return $this;
+    }
+
+    /**
+     * Get archive
+     *
+     * @return boolean
+     */
+    public function getArchive()
+    {
+        return $this->archive;
+    }
 
     /**
      * Set cv
@@ -623,5 +565,73 @@ class Eleve
     public function getCva()
     {
         return $this->cva;
+    }
+
+    /**
+     * Add promotion
+     *
+     * @param \FormationBundle\Entity\Promotion $promotion
+     *
+     * @return Eleve
+     */
+    public function addPromotion(\FormationBundle\Entity\Promotion $promotion)
+    {
+        $this->promotion[] = $promotion;
+
+        return $this;
+    }
+
+    /**
+     * Remove promotion
+     *
+     * @param \FormationBundle\Entity\Promotion $promotion
+     */
+    public function removePromotion(\FormationBundle\Entity\Promotion $promotion)
+    {
+        $this->promotion->removeElement($promotion);
+    }
+
+    /**
+     * Get promotion
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
+
+    /**
+     * Add module
+     *
+     * @param \FormationBundle\Entity\Module $module
+     *
+     * @return Eleve
+     */
+    public function addModule(\FormationBundle\Entity\Module $module)
+    {
+        $this->module[] = $module;
+
+        return $this;
+    }
+
+    /**
+     * Remove module
+     *
+     * @param \FormationBundle\Entity\Module $module
+     */
+    public function removeModule(\FormationBundle\Entity\Module $module)
+    {
+        $this->module->removeElement($module);
+    }
+
+    /**
+     * Get module
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getModule()
+    {
+        return $this->module;
     }
 }

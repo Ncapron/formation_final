@@ -8,6 +8,7 @@ namespace FormationBundle\Entity;
 class Note
 {
 
+
     /**
      * @var integer
      */
@@ -28,6 +29,23 @@ class Note
      */
     private $eleve;
 
+    /**
+     * @var \FormationBundle\Entity\Module
+     */
+    private $module;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $commentaire;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commentaire = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -110,11 +128,6 @@ class Note
     {
         return $this->eleve;
     }
-    /**
-     * @var \FormationBundle\Entity\Module
-     */
-    private $module;
-
 
     /**
      * Set module
@@ -138,5 +151,39 @@ class Note
     public function getModule()
     {
         return $this->module;
+    }
+
+    /**
+     * Add commentaire
+     *
+     * @param \FormationBundle\Entity\Commentaire $commentaire
+     *
+     * @return Note
+     */
+    public function addCommentaire(\FormationBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaire[] = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentaire
+     *
+     * @param \FormationBundle\Entity\Commentaire $commentaire
+     */
+    public function removeCommentaire(\FormationBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaire->removeElement($commentaire);
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
     }
 }

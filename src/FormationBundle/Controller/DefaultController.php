@@ -2,6 +2,7 @@
 
 namespace FormationBundle\Controller;
 
+use FormationBundle\Entity\Commentaire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -18,12 +19,17 @@ class DefaultController extends Controller
 
 
         $promotion = $em->getRepository('FormationBundle:Promotion')->findOneBy(array('id' => $id));
-        $module = $em->getRepository('FormationBundle:Module')->findAll(array('promotion' =>$promotion));
         $eleve = $em->getRepository('FormationBundle:Eleve')->findOneBy(array('id' => $id));
+        $module = $em->getRepository('FormationBundle:Module')->findBy(array(
+            'eleve' => $eleve,
+            'promotion' => $promotion,
+        ));
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array(
             'eleve' => $eleve,
             'promotion' => $promotion,
             ));
+        $commentaires = $em->getRepository('FormationBundle:Commentaire')->findById($id);
+
 
         $note = new Note();
         $form = $this->createForm('FormationBundle\Form\NoteType', $note);
@@ -61,6 +67,7 @@ class DefaultController extends Controller
             'notes'=>$notes,
             'form' => $form->createView(),
             'promotion' => $promotion,
+            'commentaire' => $commentaires
         ));
     }
 
@@ -72,4 +79,30 @@ class DefaultController extends Controller
             ->getForm()
             ;
     }
+
+    /**
+     * Creates a new Commentaire entity.
+     *
+     */
+    public function newAction(Request $request)
+    {
+        $commentaire = new Commentaire();
+        $form = $this->createForm('FormationBundle\Form\CommentaireType', $commentaire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($commentaire);
+            $em->flush();
+
+            return $this->redirectToRoute('commentaire_show', array('id' => $commentaire->getId()));
+        }
+
+        return $this->render('FormationBundle:Default:index.html.twig', array(
+            'commentaire' => $commentaire,
+            'form' => $form->createView(),
+        ));
+    }
+
+
 }

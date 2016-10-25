@@ -7,6 +7,11 @@ namespace FormationBundle\Entity;
  */
 class Commentaire
 {
+
+    public function __toString()
+    {
+        return $this->getMessage();
+    }
     /**
      * @var int
      */
@@ -50,5 +55,51 @@ class Commentaire
     public function getMessage()
     {
         return $this->message;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $note;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->note = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add note
+     *
+     * @param \FormationBundle\Entity\Note $note
+     *
+     * @return Commentaire
+     */
+    public function addNote(\FormationBundle\Entity\Note $note)
+    {
+        $this->note[] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Remove note
+     *
+     * @param \FormationBundle\Entity\Note $note
+     */
+    public function removeNote(\FormationBundle\Entity\Note $note)
+    {
+        $this->note->removeElement($note);
+    }
+
+    /**
+     * Get note
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNote()
+    {
+        return $this->note;
     }
 }

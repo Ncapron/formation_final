@@ -25,7 +25,7 @@ class EleveType extends AbstractType
                     'femme' => 'Femme'
                 ),
                 'required'    => false,
-                'placeholder' => 'Selectionnez votre sexe',
+                'placeholder' => 'Selectionnez le sexe',
                 'empty_data'  => null
             ))
             ->add('adresse')
@@ -42,6 +42,19 @@ class EleveType extends AbstractType
             ->add('archive')
             ->add('filecv', 'file', array('label' => ' ', 'required' => false))
             ->add('filecva', 'file', array('label' => ' ', 'required' => false))
+            ->add('etude', ChoiceType::class, array(
+                'choices' => array(
+                    'bac' => 'bac',
+                    'bac +2' => 'bac +2',
+                    'bac +3' => 'bac +3',
+                    'bac +4' => 'bac +4',
+                    'bac +5' => 'bac +5',
+                ),
+                'required'    => false,
+                'placeholder' => 'Selectionnez le niveau',
+                'empty_data'  => null
+            ))
+            ->add('module')
         ;
     }
     

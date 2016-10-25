@@ -73,6 +73,18 @@
                             {{ form_errors(form.archive) }}
                         </div>
                     </div>
+                    <div class="input-field col s6">
+                        {{ form_widget(form.etude) }}
+                        {{ form_label(form.etude) }}
+                        {{ form_errors(form.etude) }}
+                    </div>
+                    <div class="row-hidden">
+                        <div class="input-field col s6">
+                            {{ form_widget(form.module) }}
+                            {{ form_label(form.module) }}
+                            {{ form_errors(form.module) }}
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="input-field col s6">
                             {{ form_label(form.filecv) }}

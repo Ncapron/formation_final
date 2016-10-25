@@ -35,7 +35,7 @@ class PromotionType extends AbstractType
                     '14' => '14',
                     '15' => '15'
                 ),
-                'required'    => true,
+                'required'    => false,
                 'placeholder' => 'Selectionnez le nombre de semaines',
                 'empty_data'  => null
             ))
