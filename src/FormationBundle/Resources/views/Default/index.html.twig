@@ -3,6 +3,10 @@
 {% block body %}
 
         <p class="titre">{{ eleve.nom }}</p>
+    {{ dump(promotion) }}
+    {{ dump(module) }}
+    {{ dump(eleve) }}
+    {{ dump(notes) }}
 
     {{ form_start(form) }}
     <div class="container-fluid">
