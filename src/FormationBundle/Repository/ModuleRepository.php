@@ -12,5 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class ModuleRepository extends EntityRepository
 {
+    public function findByPromo($promo){
+        $query = $this->createQueryBuilder('a')
+            ->select('a')
+            ->leftJoin('a.module', 'c')
+            ->addSelect('c');
 
+        $query = $query->add('where', $query->expr()->in('c', ':c'))
+            ->setParameter('c', $promo)
+            ->getQuery()
+            ->getResult();
+
+        return $query;
+    }
 }

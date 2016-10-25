@@ -143,6 +143,7 @@ class PromotionController extends Controller
 
 
 
+
         return $this->render('FormationBundle:promotion:listeelevprom.html.twig', array(
             'promo' => $promo,
         ));
