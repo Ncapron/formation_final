@@ -28,14 +28,9 @@ class DefaultController extends Controller
         if ($form->isSubmitted()) {
             if (!empty($notes)) {
                 foreach ($notes as $n) {
-                    $formdeletenote = $this->createFormBuilder()
-                        ->setAction($this->generateUrl('note_delete', array('id' => $n->getId())))
-                        ->setMethod('DELETE')
-                        ->getForm()
-                        ->handleRequest($request);
-                    $em = $this->getDoctrine()->getManager();
-                    $em->remove($n);
-                    $em->flush();
+                    $query = $em->getRepository('FormationBundle:Note')->createQueryBuilder('DELETE n FROM note n WHERE n.id = :id');
+                    $query->setParameter('id', $n);
+                    $query->execute();
                 }
             }
 
@@ -46,6 +41,7 @@ class DefaultController extends Controller
                 $note->setNote($_POST['note'][$i]);
                 $em->persist($note);
                 $em->flush();
+                unset($note);
             }
 
 
