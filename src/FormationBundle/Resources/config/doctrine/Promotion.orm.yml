@@ -62,6 +62,8 @@ FormationBundle\Entity\Promotion:
                         referencedColumnName: id
                 inverseJoinColumns:
                     eleve_id:
+                        referencedColumnName: id
+
 
         module:
             targetEntity: FormationBundle\Entity\Module
@@ -73,3 +75,4 @@ FormationBundle\Entity\Promotion:
                         referencedColumnName: id
                 inverseJoinColumns:
                     module_id:
+                        referencedColumnName: id

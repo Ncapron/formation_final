@@ -66,11 +66,11 @@
                             {#</div>#}
                         </div>
                     </div>
-                    {#<div class="row">#}
-                        {#<div class="input-field col s12">#}
-                            {#{{ form_widget(form.eleve) }}#}
-                            {#{{ form_label(form.eleve) }}#}
-                            {#{{ form_errors(form.eleve) }}#}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form_widget(form.eleve) }}
+                            {{ form_label(form.eleve) }}
+                            {{ form_errors(form.eleve) }}
                             {#<!-- Modal Trigger -->#}
                             {#<a class="btn modal-trigger" href="#modal1">+</a>#}
 
@@ -80,8 +80,8 @@
                                     {#{{ render(controller('FormationBundle:Eleve:new')) }}#}
                                 {#</div>#}
                             {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
+                        </div>
+                    </div>
                     <div class="row-hidden">
                         <div class="input-field col s12">
                             {{ form_widget(form.archive) }}

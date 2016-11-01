@@ -7,8 +7,6 @@ namespace FormationBundle\Entity;
  */
 class Note
 {
-
-
     /**
      * @var integer
      */

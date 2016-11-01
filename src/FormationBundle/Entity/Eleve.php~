@@ -634,4 +634,33 @@ class Eleve
     {
         return $this->module;
     }
+    /**
+     * @var string
+     */
+    private $etude;
+
+
+    /**
+     * Set etude
+     *
+     * @param string $etude
+     *
+     * @return Eleve
+     */
+    public function setEtude($etude)
+    {
+        $this->etude = $etude;
+
+        return $this;
+    }
+
+    /**
+     * Get etude
+     *
+     * @return string
+     */
+    public function getEtude()
+    {
+        return $this->etude;
+    }
 }

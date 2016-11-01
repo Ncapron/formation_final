@@ -20,10 +20,7 @@ class DefaultController extends Controller
 
         $promotion = $em->getRepository('FormationBundle:Promotion')->findOneBy(array('id' => $id));
         $eleve = $em->getRepository('FormationBundle:Eleve')->findOneBy(array('id' => $id));
-        $module = $em->getRepository('FormationBundle:Module')->findBy(array(
-            'eleve' => $eleve,
-            'promotion' => $promotion,
-        ));
+        $module = $em->getRepository('FormationBundle:Module')->findAll();
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array(
             'eleve' => $eleve,
             'promotion' => $promotion,
