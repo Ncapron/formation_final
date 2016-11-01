@@ -13,7 +13,7 @@ class Module
     {
         return $this->getNom();
     }
-
+    
     // generate code
     /**
      * @var int
