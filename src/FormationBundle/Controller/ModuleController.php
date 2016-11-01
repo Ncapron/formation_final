@@ -37,6 +37,7 @@ class ModuleController extends Controller
     {
         $module = new Module();
         $form = $this->createForm('FormationBundle\Form\ModuleType', $module);
+        $form->remove('promotion');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -251,6 +251,11 @@ class Eleve
     private $cva;
 
     /**
+     * @var string
+     */
+    private $etude;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $promotion;
@@ -568,6 +573,30 @@ class Eleve
     }
 
     /**
+     * Set etude
+     *
+     * @param string $etude
+     *
+     * @return Eleve
+     */
+    public function setEtude($etude)
+    {
+        $this->etude = $etude;
+
+        return $this;
+    }
+
+    /**
+     * Get etude
+     *
+     * @return string
+     */
+    public function getEtude()
+    {
+        return $this->etude;
+    }
+
+    /**
      * Add promotion
      *
      * @param \FormationBundle\Entity\Promotion $promotion
@@ -633,34 +662,5 @@ class Eleve
     public function getModule()
     {
         return $this->module;
-    }
-    /**
-     * @var string
-     */
-    private $etude;
-
-
-    /**
-     * Set etude
-     *
-     * @param string $etude
-     *
-     * @return Eleve
-     */
-    public function setEtude($etude)
-    {
-        $this->etude = $etude;
-
-        return $this;
-    }
-
-    /**
-     * Get etude
-     *
-     * @return string
-     */
-    public function getEtude()
-    {
-        return $this->etude;
     }
 }

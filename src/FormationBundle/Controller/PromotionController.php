@@ -37,6 +37,9 @@ class PromotionController extends Controller
     {
         $promotion = new Promotion();
         $form = $this->createForm('FormationBundle\Form\PromotionType', $promotion);
+        $form->remove('eleve');
+        $form->remove('langage');
+        $form->remove('module');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -136,14 +139,15 @@ class PromotionController extends Controller
         ;
     }
 
-    public function elevepromAction(Promotion $id)
+    public function elevepromAction(Promotion $promotion)
     {
         $em = $this->getDoctrine()->getManager();
-        $promo = $em->getRepository('FormationBundle:Promotion')->findById($id);
+        $eleves = $em->getRepository('FormationBundle:Eleve')->findEleves($promotion);
         
 
         return $this->render('FormationBundle:promotion:listeelevprom.html.twig', array(
-            'promo' => $promo,
+            'eleves' => $eleves,
+            'promotion' => $promotion
             
         ));
     }

@@ -25,4 +25,24 @@ class ModuleRepository extends EntityRepository
 
         return $query;
     }
+
+    public function findModule($eleve)
+    {
+        $qb = $this->createQueryBuilder('m');
+        // On fait une jointure avec l'entité promotion avec pour alias « p »
+        // attention a ne pas chercher de cette manier FormationBundle\Promotion 
+        // car symfony s'occupe lui meme dans l'entité d'oú le e.promotion
+        $qb
+            ->join('m.eleve', 'e')
+            ->addSelect('e')
+        ;
+        // Puis on filtre sur l'id des promotion
+        $qb->where('m.id = :eleve');
+        $qb->setParameter('eleve', $eleve);
+        // Enfin, on retourne le résultat
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

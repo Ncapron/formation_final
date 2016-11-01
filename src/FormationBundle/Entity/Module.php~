@@ -9,10 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Module
 {
-    public function __toString()
-    {
-        return $this->getNom();
-    }
+
     /**
      * @var int
      */

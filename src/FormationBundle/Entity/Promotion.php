@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Promotion
 {
+    
+
     public function __toString()
     {
         return $this->getTitre();

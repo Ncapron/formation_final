@@ -28,5 +28,6 @@ formation_commentaire:
 
 
 formation_homepage:
-    path:     /{id}/eletable
+    path:     /{id}/{ideleve}/eletable
     defaults: { _controller: FormationBundle:Default:index }
+    methods:  [GET, POST, DELETE]
