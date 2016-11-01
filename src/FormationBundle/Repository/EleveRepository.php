@@ -13,6 +13,26 @@ use Doctrine\ORM\EntityRepository;
 class EleveRepository extends EntityRepository
 {
 
+    public function findEleves($promo)
+    {
+        $qb = $this->createQueryBuilder('e');
+        // On fait une jointure avec l'entité promotion avec pour alias « p »
+        // attention a ne pas chercher de cette manier FormationBundle\Promotion 
+        // car symfony s'occupe lui meme dans l'entité d'oú le e.promotion
+        $qb
+            ->join('e.promotion', 'p')
+            ->addSelect('p')
+        ;
+        // Puis on filtre sur l'id des promotion
+        $qb->where('p.id = :promotion');
+        $qb->setParameter('promotion', $promo);
+        // Enfin, on retourne le résultat
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    
     public function findByModule($module){
         $query = $this->createQueryBuilder('a')
             ->select('a')

@@ -17,12 +17,10 @@
                     </thead>
                     <tbody>
 
-                    {% for eleves in promo %}
-
-                        {% for eleve in eleves.eleve %}
+                        {% for eleve in eleves %}
                             {% if eleve.archive == false %}
                                 <tr>
-                                    <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}">{{ eleve.nom }}</a></td>
+                                    <td><a href="{{ path('formation_homepage',{ 'id': promotion.id, 'ideleve': eleve.id }) }}">{{ eleve.nom }}</a></td>
                                     <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
                                     <td>{{ eleve.tel }}</td>
                                     <td>
@@ -38,7 +36,6 @@
                                 </tr>
                             {% endif %}
                         {% endfor %}
-                    {% endfor %}
                     </tbody>
                 </table>
             </div>
