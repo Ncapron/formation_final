@@ -186,4 +186,482 @@ class Eleve
     //generate
     
 
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $nom;
+
+    /**
+     * @var string
+     */
+    private $logo;
+
+    /**
+     * @var string
+     */
+    private $adresse;
+
+    /**
+     * @var integer
+     */
+    private $cp;
+
+    /**
+     * @var string
+     */
+    private $ville;
+
+    /**
+     * @var string
+     */
+    private $sexe;
+
+    /**
+     * @var integer
+     */
+    private $tel;
+
+    /**
+     * @var string
+     */
+    private $mail;
+
+    /**
+     * @var \DateTime
+     */
+    private $datenaissance;
+
+    /**
+     * @var boolean
+     */
+    private $archive;
+
+    /**
+     * @var string
+     */
+    private $cv;
+
+    /**
+     * @var string
+     */
+    private $cva;
+
+    /**
+     * @var string
+     */
+    private $etude;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $promotion;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $module;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->promotion = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->module = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Eleve
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return Eleve
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Eleve
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set cp
+     *
+     * @param integer $cp
+     *
+     * @return Eleve
+     */
+    public function setCp($cp)
+    {
+        $this->cp = $cp;
+
+        return $this;
+    }
+
+    /**
+     * Get cp
+     *
+     * @return integer
+     */
+    public function getCp()
+    {
+        return $this->cp;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Eleve
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return Eleve
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * Set tel
+     *
+     * @param integer $tel
+     *
+     * @return Eleve
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * Get tel
+     *
+     * @return integer
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Eleve
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set datenaissance
+     *
+     * @param \DateTime $datenaissance
+     *
+     * @return Eleve
+     */
+    public function setDatenaissance($datenaissance)
+    {
+        $this->datenaissance = $datenaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get datenaissance
+     *
+     * @return \DateTime
+     */
+    public function getDatenaissance()
+    {
+        return $this->datenaissance;
+    }
+
+    /**
+     * Set archive
+     *
+     * @param boolean $archive
+     *
+     * @return Eleve
+     */
+    public function setArchive($archive)
+    {
+        $this->archive = $archive;
+
+        return $this;
+    }
+
+    /**
+     * Get archive
+     *
+     * @return boolean
+     */
+    public function getArchive()
+    {
+        return $this->archive;
+    }
+
+    /**
+     * Set cv
+     *
+     * @param string $cv
+     *
+     * @return Eleve
+     */
+    public function setCv($cv)
+    {
+        $this->cv = $cv;
+
+        return $this;
+    }
+
+    /**
+     * Get cv
+     *
+     * @return string
+     */
+    public function getCv()
+    {
+        return $this->cv;
+    }
+
+    /**
+     * Set cva
+     *
+     * @param string $cva
+     *
+     * @return Eleve
+     */
+    public function setCva($cva)
+    {
+        $this->cva = $cva;
+
+        return $this;
+    }
+
+    /**
+     * Get cva
+     *
+     * @return string
+     */
+    public function getCva()
+    {
+        return $this->cva;
+    }
+
+    /**
+     * Set etude
+     *
+     * @param string $etude
+     *
+     * @return Eleve
+     */
+    public function setEtude($etude)
+    {
+        $this->etude = $etude;
+
+        return $this;
+    }
+
+    /**
+     * Get etude
+     *
+     * @return string
+     */
+    public function getEtude()
+    {
+        return $this->etude;
+    }
+
+    /**
+     * Add promotion
+     *
+     * @param \FormationBundle\Entity\Promotion $promotion
+     *
+     * @return Eleve
+     */
+    public function addPromotion(\FormationBundle\Entity\Promotion $promotion)
+    {
+        $this->promotion[] = $promotion;
+
+        return $this;
+    }
+
+    /**
+     * Remove promotion
+     *
+     * @param \FormationBundle\Entity\Promotion $promotion
+     */
+    public function removePromotion(\FormationBundle\Entity\Promotion $promotion)
+    {
+        $this->promotion->removeElement($promotion);
+    }
+
+    /**
+     * Get promotion
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
+
+    /**
+     * Add module
+     *
+     * @param \FormationBundle\Entity\Module $module
+     *
+     * @return Eleve
+     */
+    public function addModule(\FormationBundle\Entity\Module $module)
+    {
+        $this->module[] = $module;
+
+        return $this;
+    }
+
+    /**
+     * Remove module
+     *
+     * @param \FormationBundle\Entity\Module $module
+     */
+    public function removeModule(\FormationBundle\Entity\Module $module)
+    {
+        $this->module->removeElement($module);
+    }
+
+    /**
+     * Get module
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getModule()
+    {
+        return $this->module;
+    }
 }

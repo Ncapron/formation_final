@@ -49,9 +49,7 @@ class PromotionType extends AbstractType
                 'attr' => ['class' => 'datepicker'],
                 'format' => 'dd-MM-yyyy'
             ))
-            ->add('module')
             ->add('langage')
-            ->add('eleve')
             ->add('archive')
         ;
     }

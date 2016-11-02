@@ -1,6 +1,6 @@
 formation_promotion:
     resource: "@FormationBundle/Resources/config/routing/promotion.yml"
-    prefix:   /promotion
+    prefix:   /
 
 formation_eleve:
     resource: "@FormationBundle/Resources/config/routing/eleve.yml"

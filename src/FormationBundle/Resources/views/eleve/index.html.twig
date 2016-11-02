@@ -18,7 +18,7 @@
                     {% for eleve in eleves %}
                         {% if eleve.archive == false %}
                         <tr>
-                            <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}"</a>{{ eleve.nom }}</td>
+                            <td>{{ eleve.nom }}</td>
                             <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
                             <td>0{{ eleve.tel }}</td>
                             <td>
@@ -26,9 +26,11 @@
                                     <li>
                                         <a href="{{ path('eleve_show', { 'id': eleve.id }) }}">Détails</a>
                                     </li>
+                                    {% if is_granted("ROLE_USER") %}
                                     <li>
                                         <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Editer</a>
                                     </li>
+                                    {% endif %}
                                 </ul>
                             </td>
                         </tr>
@@ -39,9 +41,11 @@
             </div>
         </div>
     </div>
+{% if is_granted("ROLE_USER") %}
     <ul>
         <li class="button-centre">
             <a class="btn btn-default edit_admin" href="{{ path('eleve_new') }}">Créer un nouvel élève</a>
         </li>
     </ul>
+{% endif %}
 {% endblock %}

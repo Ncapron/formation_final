@@ -50,13 +50,13 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="input-field col s12">
-                            {#{{ form_widget(form.module) }}#}
-                            {#{{ form_label(form.module) }}#}
-                            {#{{ form_errors(form.module) }}#}
-                            <!-- Modal Trigger -->
-                            <a class="btn modal-trigger" href="#modal2">+</a>
+                    {#<div class="row">#}
+                        {#<div class="input-field col s12">#}
+                            {#{{ form_widget(form.eleve) }}#}
+                            {#{{ form_label(form.eleve) }}#}
+                            {#{{ form_errors(form.eleve) }}#}
+                            {#<!-- Modal Trigger -->#}
+                            {#<a class="btn modal-trigger" href="#modal2">+</a>#}
 
                             {#<!-- Modal Structure -->#}
                             {#<div id="modal2" class="modal">#}
@@ -64,8 +64,8 @@
                                     {#{{ render(controller('FormationBundle:Module:new')) }}#}
                                 {#</div>#}
                             {#</div>#}
-                        </div>
-                    </div>
+                        {#</div>#}
+                    {#</div>#}
                     <div class="row">
                         <div class="input-field col s12">
                             {#{{ form_widget(form.eleve) }}#}

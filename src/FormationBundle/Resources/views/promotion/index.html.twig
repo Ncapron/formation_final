@@ -13,8 +13,10 @@
                         <figcaption>
                             <p>{{ promotion.titre }}</p>
                             <p>{{ promotion.semaines }} - semaines</p>
+                            {% if is_granted("ROLE_USER") %}
                                     <a class="btn btn-default edit_admin" href="{{ path('promotion_show', { 'id': promotion.id }) }}">Details</a>
                                     <a class="btn btn-default edit_admin" href="{{ path('promotion_edit', { 'id': promotion.id }) }}">Editer</a>
+                            {% endif %}
                         </figcaption>
                     </figure>
                 {% endif %}
@@ -22,10 +24,11 @@
             </div>
         </div>
     </div>
+{% if is_granted("ROLE_USER") %}
     <ul>
         <li class="button-centre">
             <a class="btn btn-default edit_admin" href="{{ path('promotion_new') }}">Créer une nouvelle promotion</a>
         </li>
     </ul>
-
+{% endif %}
 {% endblock %}

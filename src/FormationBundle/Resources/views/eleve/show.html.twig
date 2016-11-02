@@ -24,10 +24,12 @@
                     <p>Téléphone : 0{{ eleve.tel }}</p>
                     <p>Mail : {{ eleve.mail }}</p>
                 </div>
+                {% if is_granted("ROLE_USER") %}
                 <div class="card-action">
                     <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Editer</a>
                     <a href="{{ path('eleve_index') }}">Retourner à la liste des élèves</a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
