@@ -10,4 +10,16 @@ namespace FormationBundle\Repository;
  */
 class NoteRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findNotesByEleveprom($promotion, $ideleve)
+    {
+        $qb = $this->createQueryBuilder('n')
+            ->delete('FormationBundle:Note', 'n')
+            ->where('n.eleve = :eleve')
+            ->setParameter('eleve', $ideleve)
+            ->andWhere('n.promotion = :promo')
+            ->setParameter('promo', $promotion)
+            ->getQuery();
+
+        $qb->execute();
+    }
 }
