@@ -26,26 +26,23 @@ class DefaultController extends Controller
         $form = $this->createForm('FormationBundle\Form\NoteType', $note);
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
-            if (!empty($notes)) {
-                foreach ($notes as $n) {
-                    $query = $em->getRepository('FormationBundle:Note')->createQueryBuilder('DELETE n FROM note n WHERE n.id = :id');
-                    $query->setParameter('id', $n);
-                    $query->execute();
-                }
-            }
 
-            for ($i = 0; $i < count($_POST['note']); $i++) {
+            $em->getRepository('FormationBundle:Note')->findNotesByEleveprom($promotion, $ideleve);
+            unset($_POST['note']['_token']);
+            foreach ($_POST['note'] as $value_note) {
+
+                echo $value_note;
                 $note = new Note();
                 $note->setEleve($ideleve);
                 $note->setPromotion($promotion);
-                $note->setNote($_POST['note'][$i]);
+                $note->setNote($value_note);
                 $em->persist($note);
                 $em->flush();
-                unset($note);
+                //unset($note);
             }
 
 
-            return $this->redirectToRoute('eleve_index', array('id' => $note->getId()));
+            //redirectToRoute('eleve_index', array('id' => $note->getId()));
         }
 
         $modules = $em->getRepository('FormationBundle:Module')->findModule($ideleve);
