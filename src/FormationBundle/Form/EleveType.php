@@ -38,7 +38,6 @@ class EleveType extends AbstractType
                 'attr' => ['class' => 'datepicker'],
                 'format' => 'dd-MM-yyyy'
             ))
-            ->add('promotion')
             ->add('archive')
             ->add('filecv', 'file', array('label' => ' ', 'required' => false))
             ->add('filecva', 'file', array('label' => ' ', 'required' => false))
