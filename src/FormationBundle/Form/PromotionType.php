@@ -51,6 +51,7 @@ class PromotionType extends AbstractType
             ))
             ->add('langage')
             ->add('archive')
+            ->add('eleve')
         ;
     }
     

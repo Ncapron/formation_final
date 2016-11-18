@@ -184,8 +184,6 @@ class Eleve
     }
 
     //generate
-    
-
     /**
      * @var integer
      */

@@ -80,7 +80,7 @@ class EleveController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-
+        //var_dump($editForm);die;
             if ($editForm->get('file') AND $editForm->get('filecv') AND $editForm->get('filecva')  ->getData() != null) {
 
                 if($eleve->getLogo() != null){
@@ -103,7 +103,7 @@ class EleveController extends Controller
             $em->persist($eleve);
             $em->flush();
 
-            return $this->redirectToRoute('eleve_index', array('id' => $eleve->getId()));
+            return $this->redirectToRoute('eleve_index');
         }
 
         return $this->render('FormationBundle:eleve:edit.html.twig', array(

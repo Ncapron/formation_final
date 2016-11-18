@@ -101,7 +101,6 @@ class Promotion
     }
 
     //generate
-
     /**
      * @var integer
      */
@@ -158,18 +157,12 @@ class Promotion
     private $module;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $intervenant;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
         $this->eleve = new \Doctrine\Common\Collections\ArrayCollection();
         $this->module = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->intervenant = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -440,39 +433,5 @@ class Promotion
     public function getModule()
     {
         return $this->module;
-    }
-
-    /**
-     * Add intervenant
-     *
-     * @param \FormationBundle\Entity\Intervenant $intervenant
-     *
-     * @return Promotion
-     */
-    public function addIntervenant(\FormationBundle\Entity\Intervenant $intervenant)
-    {
-        $this->intervenant[] = $intervenant;
-
-        return $this;
-    }
-
-    /**
-     * Remove intervenant
-     *
-     * @param \FormationBundle\Entity\Intervenant $intervenant
-     */
-    public function removeIntervenant(\FormationBundle\Entity\Intervenant $intervenant)
-    {
-        $this->intervenant->removeElement($intervenant);
-    }
-
-    /**
-     * Get intervenant
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIntervenant()
-    {
-        return $this->intervenant;
     }
 }
