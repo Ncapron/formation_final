@@ -20,11 +20,10 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-
-
         $note = new Note();
         $form = $this->createForm('FormationBundle\Form\NoteType', $note);
         $form->handleRequest($request);
+
         if ($form->isSubmitted()) {
 
             $em->getRepository('FormationBundle:Note')->findNotesByEleveprom($promotion, $ideleve);
@@ -44,8 +43,8 @@ class DefaultController extends Controller
 
             //redirectToRoute('eleve_index', array('id' => $note->getId()));
         }
-
-        $modules = $em->getRepository('FormationBundle:Module')->findModule($ideleve);
+        $modules = $ideleve->getModule()->getValues();
+        
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion));
 
         return $this->render('FormationBundle:Default:index.html.twig', array(

@@ -26,8 +26,9 @@
                 {% endfor %}
                 <td></td>
             </tr>
+            {% for module in modules %}
             <tr>
-                {% for module in modules %}
+
                 <td style="border-right: 1px solid black">{{ module.nom }}</td>
                     {% if notes is empty %}
                         {% for i in 1..promotion.semaines*2 %}
@@ -54,7 +55,7 @@
 
                     {% endfor %}
                     {% endif %}
-                {% endfor %}
+
 
                 <td style="border-right:1px solid black">
                     <select name="note[]">
@@ -65,6 +66,7 @@
                     </select>
                 </td>
                 </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
