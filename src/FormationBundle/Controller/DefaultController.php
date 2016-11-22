@@ -39,7 +39,8 @@ class DefaultController extends Controller
                 $em->flush();
                 //unset($note);
 
-                return $this->redirectToRoute('');
+                return $this->redirectToRoute('promotion_index');
+
             }
 
 
@@ -48,6 +49,7 @@ class DefaultController extends Controller
         $modules = $ideleve->getModule()->getValues();
         
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion));
+
 
         return $this->render('FormationBundle:Default:index.html.twig', array(
             'notes' => $notes,

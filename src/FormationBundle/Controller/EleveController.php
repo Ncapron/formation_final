@@ -88,14 +88,14 @@ class EleveController extends Controller
                     $eleve->setLogo(null);
                 }
 
-                elseif ($eleve->getLogo() != null){
-                    unlink(__DIR__.'/../../../web/uploads/cv/'.$eleve->getLogo());
-                    $eleve->setLogo(null);
+                elseif ($eleve->getCv() != null){
+                    unlink(__DIR__.'/../../../web/uploads/cv/'.$eleve->getCv());
+                    $eleve->setCv(null);
                 }
 
-                elseif ($eleve->getLogo() != null){
-                    unlink(__DIR__.'/../../../web/uploads/cva/'.$eleve->getLogo());
-                    $eleve->setLogo(null);
+                elseif ($eleve->getCva() != null){
+                    unlink(__DIR__.'/../../../web/uploads/cva/'.$eleve->getCva());
+                    $eleve->setCva(null);
                 }
             }
             $eleve->preUpload();

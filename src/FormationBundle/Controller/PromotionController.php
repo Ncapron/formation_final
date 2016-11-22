@@ -38,7 +38,6 @@ class PromotionController extends Controller
         $promotion = new Promotion();
         $form = $this->createForm('FormationBundle\Form\PromotionType', $promotion);
         $form->remove('eleve');
-        $form->remove('langage');
         $form->remove('module');
         $form->handleRequest($request);
 
