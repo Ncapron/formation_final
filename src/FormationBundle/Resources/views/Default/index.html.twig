@@ -2,7 +2,18 @@
 
 {% block body %}
 
+        <img style="position: absolute; left: 10px; width: 245px; height: 220px; top: 80px;" src="{{ asset('uploads/eleves/') }}{{ eleve.logo }}" alt="img" />
         <p class="titre">{{ eleve.nom }}</p>
+        <ul style="position: absolute ;right: 10px; top: 10%">
+        <li style="border: 1px solid black; width: 200px; text-align: center;">ND : Non Défini</li>
+        <li style="border: 1px solid black; width: 200px; text-align: center;">A : Acquis</li>
+        <li style="border: 1px solid black; width: 200px; text-align: center;">EA : En cours d'acquisition</li>
+        <li style="border: 1px solid black; width: 200px; text-align: center;">NA : Non Acquis</li>
+        </ul>
+
+    <div style="margin-bottom: 160px">
+        <p></p>
+    </div>
 
     {{ form_start(form) }}
     <div class="container-fluid">

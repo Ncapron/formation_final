@@ -1,9 +1,3 @@
-
-.ilike-blue-container {
-@extend .blue, .lighten-4;
-}
-
-
 /*general*/
 .background{
     background-color:#BBD2E1
@@ -61,6 +55,12 @@ img {
 
 .nom{
     text-align: center;
+}
+
+/*defautindex page note*/
+.border_linote{
+    border: 1px solid black;
+    width: 200px;
 }
 
 /*modal eleve new dans promotion new*/

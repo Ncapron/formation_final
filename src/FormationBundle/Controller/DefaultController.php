@@ -38,8 +38,7 @@ class DefaultController extends Controller
                 $em->persist($note);
                 $em->flush();
                 //unset($note);
-
-                return $this->redirectToRoute('');
+                
             }
 
 
