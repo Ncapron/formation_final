@@ -17,9 +17,9 @@
                         <p>Ville : {{ eleve.ville }}</p>
                         <p>Téléphone : 0{{ eleve.tel }}</p>
                         <p>Mail : {{ eleve.mail }}</p>
-                        <div style="margin-left: 90%">
-                            <img id="single_2" src="{{ asset('uploads/cv/5800a32dae258.jpeg') }}" alt="" />
-                            <img id="single_2" src="{{ asset('uploads/cv/5800a380b694d.jpeg') }}" alt="image" />
+                        <div style="position: absolute; left: 65%; bottom: 20%">
+                            <img id="single_2" src="{{ asset('uploads/cv/') }}{{ eleve.cv }}" alt="image" width="160" height="200" />
+                            <img id="single_2" src="{{ asset('uploads/cva/') }}{{ eleve.cva }}" alt="image" width="160" height="200" />
                         </div>
                     </div>
                     {% if is_granted("ROLE_USER") %}

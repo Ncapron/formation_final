@@ -18,7 +18,7 @@
                     {% for eleve in eleves %}
                         {% if eleve.archive ==true %}
                             <tr>
-                            <td><a href="{{ path('formation_homepage', { 'id': eleve.id })}}"</a>{{ eleve.nom }}</td>
+                            <td><a href="{{ path('archive_index', { 'id': eleve.id })}}"</a>{{ eleve.nom }}</td>
                             <td>{{ eleve.datenaissance|date("d/m/Y") }}</td>
                             <td>0{{ eleve.tel }}</td>
                             <td>
