@@ -19,3 +19,19 @@ $(document).ready(function(){
 $('#modal1').closeModal();
 
 
+$(document).ready(function() {
+    $(".fancybox").fancybox();
+});
+
+$(document).ready(function() {
+    $("#single_2").fancybox({
+        openEffect: 'elastic',
+        closeEffect: 'elastic',
+
+        helpers: {
+            title: {
+                type: 'inside'
+            }
+        }
+    })
+});

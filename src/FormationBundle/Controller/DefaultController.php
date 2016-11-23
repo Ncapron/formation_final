@@ -48,6 +48,7 @@ class DefaultController extends Controller
         
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion));
 
+
         return $this->render('FormationBundle:Default:index.html.twig', array(
             'notes' => $notes,
             'modules' => $modules,

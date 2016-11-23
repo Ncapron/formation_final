@@ -4,31 +4,29 @@
 <div class="container">
     <div class="col s12 m7">
         <h2 class="titre">Présentation de l'élève</h2>
-        <div class="card horizontal">
-            <div class="card-image">
-                <img src="{{ asset('uploads/eleves/') }}{{ eleve.logo }}" alt="img" width="50" height="200" />
-            </div>
-            {#<div class="card-image">#}
-                {#<img src="{{ asset('uploads/cv/') }}{{ eleve.cv }}" alt="img" width="50" height="200" />#}
-            {#</div>#}
-            {#<div class="card-image">#}
-                {#<img src="{{ asset('uploads/cva/') }}{{ eleve.cva }}" alt="img" width="50" height="200" />#}
-            {#</div>#}
-            <div class="card-stacked">
-                <div class="card-content">
-                    <p>Nom/Prénom  : {{ eleve.nom }}</p>
-                    <p>Date de naissance  : {{ eleve.datenaissance|date("d/m/Y") }}</p>
-                    <p>Adresse : {{ eleve.adresse }}</p>
-                    <p>Code Postal : {{ eleve.cp }}</p>
-                    <p>Ville : {{ eleve.ville }}</p>
-                    <p>Téléphone : 0{{ eleve.tel }}</p>
-                    <p>Mail : {{ eleve.mail }}</p>
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="{{ asset('uploads/eleves/') }}{{ eleve.logo }}" alt="img" width="50" height="200" />
                 </div>
-                {% if is_granted("ROLE_USER") %}
-                <div class="card-action">
-                    <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Editer</a>
-                    <a href="{{ path('eleve_index') }}">Retourner à la liste des élèves</a>
-                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>Nom/Prénom  : {{ eleve.nom }}</p>
+                        <p>Date de naissance  : {{ eleve.datenaissance|date("d/m/Y") }}</p>
+                        <p>Adresse : {{ eleve.adresse }}</p>
+                        <p>Code Postal : {{ eleve.cp }}</p>
+                        <p>Ville : {{ eleve.ville }}</p>
+                        <p>Téléphone : 0{{ eleve.tel }}</p>
+                        <p>Mail : {{ eleve.mail }}</p>
+                        <div style="position: absolute; left: 65%; bottom: 20%">
+                            <img id="single_2" src="{{ asset('uploads/cv/') }}{{ eleve.cv }}" alt="image" width="160" height="200" />
+                            <img id="single_2" src="{{ asset('uploads/cva/') }}{{ eleve.cva }}" alt="image" width="160" height="200" />
+                        </div>
+                    </div>
+                    {% if is_granted("ROLE_USER") %}
+                    <div class="card-action">
+                        <a href="{{ path('eleve_edit', { 'id': eleve.id }) }}">Editer</a>
+                        <a href="{{ path('eleve_index') }}">Retourner à la liste des élèves</a>
+                    </div>
                 {% endif %}
             </div>
         </div>
