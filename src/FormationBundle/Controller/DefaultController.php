@@ -2,6 +2,7 @@
 
 namespace FormationBundle\Controller;
 
+use Doctrine\ORM\Mapping\Id;
 use FormationBundle\Entity\Commentaire;
 use FormationBundle\Entity\Eleve;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ use FormationBundle\Form\NoteType;
 
 class DefaultController extends Controller
 {
-    public function indexAction( Request $request, Promotion $promotion, Eleve $ideleve)
+    public function indexAction( Request $request, Promotion $promotion, Eleve $ideleve, Module $module)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -26,7 +27,7 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted()) {
 
-            $em->getRepository('FormationBundle:Note')->findNotesByEleveprom($promotion, $ideleve);
+            $em->getRepository('FormationBundle:Note')->findNotesByEleveprom($promotion, $ideleve, $module);
             unset($_POST['note']['_token']);
             foreach ($_POST['note'] as $value_note) {
 
@@ -34,6 +35,7 @@ class DefaultController extends Controller
                 $note = new Note();
                 $note->setEleve($ideleve);
                 $note->setPromotion($promotion);
+                $note->setModule($module);
                 $note->setNote($value_note);
                 $em->persist($note);
                 $em->flush();
@@ -46,7 +48,7 @@ class DefaultController extends Controller
         }
         $modules = $ideleve->getModule()->getValues();
         
-        $notes = $em->getRepository('FormationBundle:Note')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion));
+        $notes = $em->getRepository('FormationBundle:Note')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion, 'module' => $module));
 
 
         return $this->render('FormationBundle:Default:index.html.twig', array(

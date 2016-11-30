@@ -66,7 +66,7 @@ class NoteController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
+.0
     /**
      * Displays a form to edit an existing Note entity.
      *

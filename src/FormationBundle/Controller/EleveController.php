@@ -81,7 +81,7 @@ class EleveController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
         //var_dump($editForm);die;
-            if ($editForm->get('file') AND $editForm->get('filecv') AND $editForm->get('filecva')  ->getData() != null) {
+            if ($editForm->get('file')->getData() != null) {
 
                 if($eleve->getLogo() != null){
                     unlink(__DIR__.'/../../../web/uploads/eleves/'.$eleve->getLogo());

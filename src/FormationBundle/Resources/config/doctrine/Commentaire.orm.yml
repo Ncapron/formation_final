@@ -12,6 +12,7 @@ FormationBundle\Entity\Commentaire:
         message:
             type: string
             length: 255
+            nullable: true
     lifecycleCallbacks: {  }
 
     manyToMany:
