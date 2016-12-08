@@ -13,30 +13,16 @@ FormationBundle\Entity\Commentaire:
             type: string
             length: 255
             nullable: true
-    lifecycleCallbacks: {  }
 
-    manyToMany:
+
+    manyToOne:
         eleve:
             targetEntity: FormationBundle\Entity\Eleve
-            inversedBy: commentaire
-            joinTable:
-                name: com_elev
-                joinColumns:
-                    commentaire_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    eleve_id:
-                        referencedColumnName: id
-
         promotion:
             targetEntity: FormationBundle\Entity\Promotion
-            inversedBy: commentaire
-            joinTable:
-                name: com_promo
-                joinColumns:
-                    commentaire_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    promotion_id:
-                        referencedColumnName: id
+            
+    lifecycleCallbacks: {  }
+
+
+
 
