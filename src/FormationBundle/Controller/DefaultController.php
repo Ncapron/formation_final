@@ -40,7 +40,7 @@ class DefaultController extends Controller
                 $note = new Note();
                 $note->setEleve($ideleve);
                 $note->setPromotion($promotion);
-                if  ($i > $stop*2) {
+                if  ($i > $stop*2+1) {
                     $i = 0;
                     $nbmodule++;
                 }

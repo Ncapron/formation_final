@@ -14,7 +14,6 @@
     <div style="margin-bottom: 160px">
         <p></p>
     </div>
-{{ dump(notes) }}
     {{ form_start(form) }}
     <div class="container-fluid">
     <div class="col sm-12">
@@ -42,7 +41,7 @@
 
                     <td style="border-right: 1px solid black">{{ module.nom }}</td>
                     {% if notes is empty %}
-                        {% for i in 1..promotion.semaines*2 %}
+                        {% for i in 1..promotion.semaines*2+1 %}
 
                                 <td style="border-right:1px solid black">
                                     <select style="" name="note[]">
