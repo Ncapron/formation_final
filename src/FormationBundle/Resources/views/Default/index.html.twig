@@ -14,7 +14,6 @@
     <div style="margin-bottom: 160px">
         <p></p>
     </div>
-{{ dump(notes) }}
     {{ form_start(form) }}
     <div class="container-fluid">
     <div class="col sm-12">
@@ -42,7 +41,7 @@
 
                     <td style="border-right: 1px solid black">{{ module.nom }}</td>
                     {% if notes is empty %}
-                        {% for i in 1..promotion.semaines*2 %}
+                        {% for i in 1..promotion.semaines*2+1 %}
 
                                 <td style="border-right:1px solid black">
                                     <select style="" name="note[]">
@@ -76,17 +75,19 @@
             </tbody>
         </table>
     </div>
-    {% if is_granted("ROLE_USER") %}
+    {#{% if is_granted("ROLE_USER") %}#}
     <h1>Commentaire creation</h1>
-        <div class="row">
-            <div class="col m8">
-                <div class="row">
-                    <div class="input-field col s6">
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="Create" />
-    {{ form_end(form) }}
-    {% endif %}
+        {% if commentaires is empty %}
+        <textarea name="commentaire[]"></textarea>
+        <textarea name="commentaire[]"></textarea>
+        {% endif %}
+        {% if commentaires %}
+            {% for commentaire in commentaires %}
+                <textarea name="commentaire[]">{{ commentaire.message }}</textarea>
+                <textarea name="commentaire[]">{{ commentaire.message }}</textarea>
+            {% endfor %}
+        {% endif %}
+    {#{% endif %}#}
     <div style="margin-top: 50px"></div>
     <div class="button-centre">
         <input class="btn btn-default edit_admin" type="submit" value="Valider" />

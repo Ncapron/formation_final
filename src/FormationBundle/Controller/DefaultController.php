@@ -28,20 +28,22 @@ class DefaultController extends Controller
         $modules = $ideleve->getModule()->getValues();
 
         if ($form->isSubmitted()) {
+            var_dump($_POST);die;
 
-            $em->getRepository('FormationBundle:Note')->findNotesByEleveprom($promotion, $ideleve, $module);
+            $em->getRepository('FormationBundle:Note')->findNotesByEleveprom($promotion, $ideleve);
             unset($_POST['note']['_token']);
 
             $stop = $promotion->getSemaines();
             $i=1;
             $nbmodule =0;
+
             foreach ($_POST['note'] as $value_note) {
 
                 $note = new Note();
                 $note->setEleve($ideleve);
                 $note->setPromotion($promotion);
-                if  ($i > $stop*2) {
-                    $i = 0;
+                if  ($i > $stop*2+1) {
+                    $i = 1;
                     $nbmodule++;
                 }
                 $note->setModule($modules[$nbmodule]);
@@ -53,13 +55,26 @@ class DefaultController extends Controller
                 
             }
 
+            $em->getRepository('FormationBundle:Commentaire')->findCommentaireByPromeleve($promotion, $ideleve);
+
+            foreach ($_POST['commentaire'] as $com)
+            {
+                $commentaire = new Commentaire();
+                $commentaire->setMessage($com);
+                $commentaire->setPromotion($promotion);
+                $commentaire->setEleve($ideleve);
+
+                $em->persist($note);
+                $em->flush();
+            }
+
 
             //redirectToRoute('eleve_index', array('id' => $note->getId()));
         }
 
         
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion));
-
+        $commentaires = $em->getRepository('FormationBundle:Commentaire')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion));
 
         return $this->render('FormationBundle:Default:index.html.twig', array(
             'notes' => $notes,
@@ -68,6 +83,7 @@ class DefaultController extends Controller
             'note' => $note,
             'form' => $form->createView(),
             'promotion' => $promotion,
+            'commentaires' => $commentaires,
         ));
     }
 
