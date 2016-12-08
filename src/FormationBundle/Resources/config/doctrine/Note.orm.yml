@@ -21,15 +21,3 @@ FormationBundle\Entity\Note:
             targetEntity: FormationBundle\Entity\Eleve
         module:
             targetEntity: FormationBundle\Entity\Module
-
-    manyToMany:
-        commentaire:
-            targetEntity: FormationBundle\Entity\Commentaire
-            inversedBy: note
-            joinTable:
-                name: notecom
-                joinColumns:
-                    note_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    commentaire_id:

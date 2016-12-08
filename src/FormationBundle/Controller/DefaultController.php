@@ -53,12 +53,26 @@ class DefaultController extends Controller
                 
             }
 
+            $em->getRepository('FormationBundle:Commentaire')->findCommentaireByPromeleve($promotion, $ideleve);
+
+            foreach ($_POST['commentaire'] as $com)
+            {
+                $commentaire = new Commentaire();
+                $commentaire->setMessage($com);
+                $commentaire->setPromotion($promotion);
+                $commentaire->setEleve($ideleve);
+
+                $em->persist($commentaire);
+                $em->flush();
+            }
+
 
             //redirectToRoute('eleve_index', array('id' => $note->getId()));
         }
 
         
         $notes = $em->getRepository('FormationBundle:Note')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion));
+        $commentaires = $em->getRepository('FormationBundle:Commentaire')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion));
 
 
         return $this->render('FormationBundle:Default:index.html.twig', array(
@@ -68,6 +82,7 @@ class DefaultController extends Controller
             'note' => $note,
             'form' => $form->createView(),
             'promotion' => $promotion,
+            'commentaires' => $commentaires,
         ));
     }
 
