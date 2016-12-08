@@ -25,30 +25,40 @@ class DefaultController extends Controller
         $form = $this->createForm('FormationBundle\Form\NoteType', $note);
         $form->handleRequest($request);
 
+        $modules = $ideleve->getModule()->getValues();
+
         if ($form->isSubmitted()) {
 
             $em->getRepository('FormationBundle:Note')->findNotesByEleveprom($promotion, $ideleve, $module);
             unset($_POST['note']['_token']);
+
+            $stop = $promotion->getSemaines();
+            $i=1;
+            $nbmodule =0;
             foreach ($_POST['note'] as $value_note) {
 
-                echo $value_note;
                 $note = new Note();
                 $note->setEleve($ideleve);
                 $note->setPromotion($promotion);
-                $note->setModule($module);
+                if  ($i > $stop*2) {
+                    $i = 0;
+                    $nbmodule++;
+                }
+                $note->setModule($modules[$nbmodule]);
                 $note->setNote($value_note);
                 $em->persist($note);
                 $em->flush();
                 //unset($note);
+                $i++;
                 
             }
 
 
             //redirectToRoute('eleve_index', array('id' => $note->getId()));
         }
-        $modules = $ideleve->getModule()->getValues();
+
         
-        $notes = $em->getRepository('FormationBundle:Note')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion, 'module' => $module));
+        $notes = $em->getRepository('FormationBundle:Note')->findBy(array('eleve' => $ideleve, 'promotion' => $promotion));
 
 
         return $this->render('FormationBundle:Default:index.html.twig', array(

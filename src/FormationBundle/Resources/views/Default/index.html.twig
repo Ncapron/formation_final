@@ -14,7 +14,7 @@
     <div style="margin-bottom: 160px">
         <p></p>
     </div>
-
+{{ dump(notes) }}
     {{ form_start(form) }}
     <div class="container-fluid">
     <div class="col sm-12">
@@ -38,44 +38,39 @@
                 <td></td>
             </tr>
             {% for module in modules %}
-            <tr>
+                <tr>
 
-                <td style="border-right: 1px solid black">{{ module.nom }}</td>
+                    <td style="border-right: 1px solid black">{{ module.nom }}</td>
                     {% if notes is empty %}
                         {% for i in 1..promotion.semaines*2 %}
-                            <td style="border-right:1px solid black">
-                                <select style="" name="note[]">
-                                    <option {% if note.note == 'nd' %} selected="selected"{% endif %} value="nd">ND</option>
-                                    <option {% if note.note == 'A' %} selected="selected"{% endif %} value="A">A</option>
-                                    <option {% if note.note == 'EA' %} selected="selected"{% endif %} value="EA">EA</option>
-                                    <option {% if note.note == 'NA' %} selected="selected"{% endif %} value="NA">NA</option>
-                                </select>
-                            </td>
+
+                                <td style="border-right:1px solid black">
+                                    <select style="" name="note[]">
+                                        <option {% if note.note == 'nd' %} selected="selected"{% endif %} value="nd">ND</option>
+                                        <option {% if note.note == 'A' %} selected="selected"{% endif %} value="A">A</option>
+                                        <option {% if note.note == 'EA' %} selected="selected"{% endif %} value="EA">EA</option>
+                                        <option {% if note.note == 'NA' %} selected="selected"{% endif %} value="NA">NA</option>
+                                    </select>
+                                </td>
+
 
                         {% endfor %}
-                        {% else %}
-                    {% for note in notes %}
-                    <td style="border-right:1px solid black">
-                        <select style="" name="note[]">
-                            <option {% if note.note == 'nd' %} selected="selected"{% endif %} value="nd">ND</option>
-                            <option {% if note.note == 'A' %} selected="selected"{% endif %} value="A">A</option>
-                            <option {% if note.note == 'EA' %} selected="selected"{% endif %} value="EA">EA</option>
-                            <option {% if note.note == 'NA' %} selected="selected"{% endif %} value="NA">NA</option>
-                        </select>
-                    </td>
-
-                    {% endfor %}
+                    {% endif %}
+                    {% if notes %}
+                        {% for note in notes %}
+                            {% if note.module.id == module.id %}
+                                <td style="border-right:1px solid black">
+                                    <select style="" name="note[]">
+                                        <option {% if note.note == 'nd' %} selected="selected"{% endif %} value="nd">ND</option>
+                                        <option {% if note.note == 'A' %} selected="selected"{% endif %} value="A">A</option>
+                                        <option {% if note.note == 'EA' %} selected="selected"{% endif %} value="EA">EA</option>
+                                        <option {% if note.note == 'NA' %} selected="selected"{% endif %} value="NA">NA</option>
+                                    </select>
+                                </td>
+                            {% endif %}
+                        {% endfor %}
                     {% endif %}
 
-
-                <td style="border-right:1px solid black">
-                    <select name="note[]">
-                        <option value="and">ND</option>
-                        <option value="A">A</option>
-                        <option value="EA">EA</option>
-                        <option value="NA">NA</option>
-                    </select>
-                </td>
                 </tr>
             {% endfor %}
             </tbody>
