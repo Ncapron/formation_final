@@ -171,4 +171,33 @@ class Commentaire
 
         return $this;
     }
+    /**
+     * @var string
+     */
+    private $message1;
+
+
+    /**
+     * Set message1
+     *
+     * @param string $message1
+     *
+     * @return Commentaire
+     */
+    public function setMessage1($message1)
+    {
+        $this->message1 = $message1;
+
+        return $this;
+    }
+
+    /**
+     * Get message1
+     *
+     * @return string
+     */
+    public function getMessage1()
+    {
+        return $this->message1;
+    }
 }

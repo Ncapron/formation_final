@@ -55,7 +55,7 @@ class DefaultController extends Controller
 
             $em->getRepository('FormationBundle:Commentaire')->findCommentaireByPromeleve($promotion, $ideleve);
 
-            foreach ($_POST['commentaire'] as $com)
+            foreach ($_POST['commentaire'] as $com )
             {
                 $commentaire = new Commentaire();
                 $commentaire->setMessage($com);

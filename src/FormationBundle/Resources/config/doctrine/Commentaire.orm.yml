@@ -14,6 +14,11 @@ FormationBundle\Entity\Commentaire:
             length: 255
             nullable: true
 
+        message1:
+            type: string
+            length: 255
+            nullable: true
+
 
     manyToOne:
         eleve:

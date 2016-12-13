@@ -76,14 +76,28 @@
         </table>
     </div>
     {#{% if is_granted("ROLE_USER") %}#}
-    <h1>Commentaire creation</h1>
+
+
     {% if commentaires is empty %}
-        <textarea name="commentaire[]"></textarea>
-        <textarea name="commentaire[]"></textarea>
+        <div class="row">
+            <div class="input-field col s6">
+                <h1 style="font-size: 40px"><i>Commentaire :</i></h1>
+                <textarea name="commentaire[]"></textarea>
+            </div>
+            <div class="input-field col s6">
+                <h1 style="font-size: 40px"><i>Bilan :</i></h1>
+                <textarea name="commentaire[]"></textarea>
+            </div>
+        </div>
     {% endif %}
     {% if commentaires %}
         {% for commentaire in commentaires %}
-            <textarea name="commentaire[]">{{ commentaire.message }}</textarea>
+            <div class="row">
+                <div class="input-field col s6">
+                    <h1 style="font-size: 40px"><i>Commentaire:</i></h1>
+                    <textarea name="commentaire[]">{{ commentaire.message }}</textarea>
+                </div>
+            </div>
         {% endfor %}
     {% endif %}
     {#{% endif %}#}
