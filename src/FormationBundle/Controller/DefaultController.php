@@ -28,8 +28,7 @@ class DefaultController extends Controller
         $modules = $ideleve->getModule()->getValues();
 
         if ($form->isSubmitted()) {
-
-            $em->getRepository('FormationBundle:Note')->findNotesByEleveprom($promotion, $ideleve, $module);
+            $em->getRepository('FormationBundle:Note')->findNotesByEleveprom($promotion, $ideleve);
             unset($_POST['note']['_token']);
 
             $stop = $promotion->getSemaines();
@@ -41,7 +40,7 @@ class DefaultController extends Controller
                 $note->setEleve($ideleve);
                 $note->setPromotion($promotion);
                 if  ($i > $stop*2+1) {
-                    $i = 0;
+                    $i = 1;
                     $nbmodule++;
                 }
                 $note->setModule($modules[$nbmodule]);

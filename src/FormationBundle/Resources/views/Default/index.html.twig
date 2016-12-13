@@ -16,7 +16,7 @@
     </div>
     {{ form_start(form) }}
     <div class="container-fluid">
-    <div class="col sm-12">
+    <div class="col s12">
         <table class="striped highlight">
             <thead>
             <tr>
@@ -76,16 +76,28 @@
         </table>
     </div>
     {#{% if is_granted("ROLE_USER") %}#}
-    <h1>Commentaire creation</h1>
-    {% if commentaires is empty %}
-        <textarea name="commentaire[]"></textarea>
-        <textarea name="commentaire[]"></textarea>
-    {% endif %}
-    {% if commentaires %}
-        {% for commentaire in commentaires %}
-            <textarea name="commentaire[]">{{ commentaire.message }}</textarea>
-        {% endfor %}
-    {% endif %}
+    <div class="container-fluid">
+        <div class="row">
+
+                <h1>Commentaire creation</h1>
+                {% if commentaires is empty %}
+                 <div class="col s6">
+                    <textarea name="commentaire[]"></textarea>
+                 </div>
+                    <div class="col s6">
+                        <textarea name="commentaire[]"></textarea>
+                    </div>
+                {% endif %}
+                {% if commentaires %}
+                    {% for commentaire in commentaires %}
+                        <div class="col s6">
+                            <textarea name="commentaire[]">{{ commentaire.message }}</textarea>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+        </div>
+    </div>
     {#{% endif %}#}
     <div style="margin-top: 50px"></div>
     <div class="button-centre">
