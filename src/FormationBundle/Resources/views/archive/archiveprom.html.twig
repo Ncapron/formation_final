@@ -2,12 +2,12 @@
 
 {% block body %}
     <h1 class="titre">Liste des promotions archivées</h1>
-    <div class="container-fluid background">
+    <div class="container-fluid">
         <div class="row">
             <div class="col m8 offset-m2">
                 {% for promotion in promotions %}
                     {% if promotion.archive == true %}
-                    <figure class="figpromo">
+                    <figure>
                         <a href="{{ path('promotion_eleveprom', { 'id': promotion.id }) }}"><img src="{{ asset('uploads/promotion/') }}{{ promotion.logo }}" alt="img" width="245" height="220" /></a>
                         <figcaption>
                             <p>{{ promotion.titre }}</p>

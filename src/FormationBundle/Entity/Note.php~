@@ -33,11 +33,6 @@ class Note
     private $module;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $commentaire;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -149,39 +144,5 @@ class Note
     public function getModule()
     {
         return $this->module;
-    }
-
-    /**
-     * Add commentaire
-     *
-     * @param \FormationBundle\Entity\Commentaire $commentaire
-     *
-     * @return Note
-     */
-    public function addCommentaire(\FormationBundle\Entity\Commentaire $commentaire)
-    {
-        $this->commentaire[] = $commentaire;
-
-        return $this;
-    }
-
-    /**
-     * Remove commentaire
-     *
-     * @param \FormationBundle\Entity\Commentaire $commentaire
-     */
-    public function removeCommentaire(\FormationBundle\Entity\Commentaire $commentaire)
-    {
-        $this->commentaire->removeElement($commentaire);
-    }
-
-    /**
-     * Get commentaire
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCommentaire()
-    {
-        return $this->commentaire;
     }
 }

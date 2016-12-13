@@ -56,10 +56,6 @@ class Commentaire
     {
         return $this->message;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $note;
 
     /**
      * Constructor
@@ -69,39 +65,6 @@ class Commentaire
         $this->note = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Add note
-     *
-     * @param \FormationBundle\Entity\Note $note
-     *
-     * @return Commentaire
-     */
-    public function addNote(\FormationBundle\Entity\Note $note)
-    {
-        $this->note[] = $note;
-
-        return $this;
-    }
-
-    /**
-     * Remove note
-     *
-     * @param \FormationBundle\Entity\Note $note
-     */
-    public function removeNote(\FormationBundle\Entity\Note $note)
-    {
-        $this->note->removeElement($note);
-    }
-
-    /**
-     * Get note
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getNote()
-    {
-        return $this->note;
-    }
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -148,6 +111,20 @@ class Commentaire
     }
 
     /**
+     * Set eleve
+     *
+     * @param \FormationBundle\Entity\Eleve $eleve
+     *
+     * @return Commentaire
+     */
+    public function setEleve(\FormationBundle\Entity\Eleve $eleve = null)
+    {
+        $this->eleve = $eleve;
+
+        return $this;
+    }
+
+    /**
      * Add promotion
      *
      * @param \FormationBundle\Entity\Promotion $promotion
@@ -179,5 +156,19 @@ class Commentaire
     public function getPromotion()
     {
         return $this->promotion;
+    }
+
+    /**
+     * Set promotion
+     *
+     * @param \FormationBundle\Entity\Promotion $promotion
+     *
+     * @return Commentaire
+     */
+    public function setPromotion(\FormationBundle\Entity\Promotion $promotion = null)
+    {
+        $this->promotion = $promotion;
+
+        return $this;
     }
 }

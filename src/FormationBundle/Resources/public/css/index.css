@@ -1,7 +1,4 @@
 /*general*/
-.background{
-    background-color:#BBD2E1
-}
 /*Promotions et eleves cartes*/
 figure {
     float :left;
@@ -19,7 +16,6 @@ figure {
 figcaption {
     font-size : .8em;
     padding : 6px 8px;
-    background : #dddddd;
     display :block;
     text-align :center;
     font-family : georgia, serif;

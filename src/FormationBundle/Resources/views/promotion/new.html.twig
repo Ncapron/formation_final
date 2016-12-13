@@ -82,6 +82,13 @@
                             {#</div>#}
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form_label(form.eleve) }}
+                            {{ form_widget(form.eleve) }}
+                            {{ form_errors(form.eleve) }}
+                        </div>
+                    </div>
                     <div class="row-hidden">
                         <div class="input-field col s12">
                             {{ form_widget(form.archive) }}
