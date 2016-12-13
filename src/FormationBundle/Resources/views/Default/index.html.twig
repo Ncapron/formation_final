@@ -89,11 +89,14 @@
                     </div>
                 {% endif %}
                 {% if commentaires %}
-                    {% for commentaire in commentaires %}
                         <div class="col s6">
-                            <textarea name="commentaire[]">{{ commentaire.message }}</textarea>
+                            <label>Commentaire:</label>
+                            <textarea name="commentaire[]">{{ commentaires[0].message }}</textarea>
                         </div>
-                    {% endfor %}
+                        <div class="col s6">
+                            <label>Bilan:</label>
+                            <textarea name="commentaire[]">{{ commentaires[1].message }}</textarea>
+                        </div>
                 {% endif %}
 
         </div>
