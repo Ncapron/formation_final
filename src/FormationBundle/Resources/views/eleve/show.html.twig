@@ -18,9 +18,9 @@
                         <p>Ville : {{ eleve.ville }}</p>
                         <p>Téléphone : 0{{ eleve.tel }}</p>
                         <p>Mail : {{ eleve.mail }}</p>
-                        <div style="position: absolute; left: 70.5%; bottom: 21%">
-                            <img id="single_2" src="{{ asset('uploads/cv/') }}{{ eleve.cv }}" alt="image" width="160" height="200" />
-                            <img id="single_2" src="{{ asset('uploads/cva/') }}{{ eleve.cva }}" alt="image" width="160" height="200" />
+                        <div style="position: absolute; left: 64.5%; bottom: 21%">
+                            <img src="{{ asset('uploads/cv/') }}{{ eleve.cv }}" alt="image" width="160" height="200" onclick="window.open(this.src,'_blank','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width='+this.width+', height='+this.height);" />
+                            <img src="{{ asset('uploads/cva/') }}{{ eleve.cva }}" alt="image" width="160" height="200" onclick="window.open(this.src,'_blank','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width='+this.width+', height='+this.height);" />
                         </div>
                     </div>
                     <div class="card-action">
@@ -41,7 +41,7 @@
                                 <p>Ville : {{ eleve.ville }}</p>
                                 <p>Téléphone : 0{{ eleve.tel }}</p>
                                 <p>Mail : {{ eleve.mail }}</p>
-                                <div style="position: absolute; left: 70.5%; bottom: 0%">
+                                <div style="position: absolute; left: 64.5%; bottom: 0%">
                                     <img id="single_2" src="{{ asset('uploads/cv/') }}{{ eleve.cv }}" alt="image" width="160" height="200" />
                                     <img id="single_2" src="{{ asset('uploads/cva/') }}{{ eleve.cva }}" alt="image" width="160" height="200" />
                                 </div>

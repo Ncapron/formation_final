@@ -1,5 +1,5 @@
-archive_index:
-    path:     /
+archive_eleve:
+    path:     /eleve
     defaults: { _controller: "FormationBundle:Archive:index" }
     methods:  GET
 

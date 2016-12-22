@@ -24,7 +24,7 @@ class ElevePromoController extends Controller
 
         $elevePromos = $em->getRepository('FormationBundle:ElevePromo')->findAll();
 
-        return $this->render('elevepromo/index.html.twig', array(
+        return $this->render('FormationBundle:elevepromo:index.html.twig', array(
             'elevePromos' => $elevePromos,
         ));
     }
@@ -47,7 +47,7 @@ class ElevePromoController extends Controller
             return $this->redirectToRoute('elevepromo_show', array('id' => $elevePromo->getId()));
         }
 
-        return $this->render('elevepromo/new.html.twig', array(
+        return $this->render('FormationBundle:elevepromo:new.html.twig', array(
             'elevePromo' => $elevePromo,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class ElevePromoController extends Controller
     {
         $deleteForm = $this->createDeleteForm($elevePromo);
 
-        return $this->render('elevepromo/show.html.twig', array(
+        return $this->render('FormationBundle:elevepromo:show.html.twig', array(
             'elevePromo' => $elevePromo,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -85,7 +85,7 @@ class ElevePromoController extends Controller
             return $this->redirectToRoute('elevepromo_edit', array('id' => $elevePromo->getId()));
         }
 
-        return $this->render('elevepromo/edit.html.twig', array(
+        return $this->render('FormationBundle:elevepromo:edit.html.twig', array(
             'elevePromo' => $elevePromo,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

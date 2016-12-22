@@ -4,12 +4,15 @@
 
         <img style="position: absolute; left: 10px; width: 245px; height: 220px; top: 80px;" src="{{ asset('uploads/eleves/') }}{{ eleve.logo }}" alt="img" />
         <p class="titre">{{ eleve.nom }}</p>
-        <ul style="position: absolute ;right: 10px; top: 10%">
-        <li style="border: 1px solid black; width: 200px; text-align: center;">ND : Non Défini</li>
-        <li style="border: 1px solid black; width: 200px; text-align: center;">A : Acquis</li>
-        <li style="border: 1px solid black; width: 200px; text-align: center;">EA : En cours d'acquisition</li>
-        <li style="border: 1px solid black; width: 200px; text-align: center;">NA : Non Acquis</li>
-        </ul>
+
+        {#créer paramètres pour différents USER (code couleur etc)#}
+
+        {#<ul style="position: absolute ;right: 10px; top: 10%">#}
+        {#<li style="border: 1px solid black; width: 200px; text-align: center;">ND : Non Défini</li>#}
+        {#<li style="border: 1px solid black; width: 200px; text-align: center;">A : Acquis</li>#}
+        {#<li style="border: 1px solid black; width: 200px; text-align: center;">EA : En cours d'acquisition</li>#}
+        {#<li style="border: 1px solid black; width: 200px; text-align: center;">NA : Non Acquis</li>#}
+        {#</ul>#}
 
     <div style="margin-bottom: 160px">
         <p></p>
@@ -78,25 +81,25 @@
     {#{% if is_granted("ROLE_USER") %}#}
     <div class="container-fluid">
         <div class="row">
-
-                <h1>Commentaire creation</h1>
-                {% if commentaires is empty %}
-                 <div class="col s6">
-                    <textarea name="commentaire[]"></textarea>
-                 </div>
+             {% if commentaires is empty %}
                     <div class="col s6">
+                        <H1 style="font-size: 40px"><I>Commentaire :</I></H1>
+                        <textarea name="commentaire[]"></textarea>
+                    </div>
+                    <div class="col s6">
+                        <H1 style="font-size: 40px"><I>Bilan :</I></H1>
                         <textarea name="commentaire[]"></textarea>
                     </div>
                 {% endif %}
                 {% if commentaires %}
-                        <div class="col s6">
-                            <label>Commentaire:</label>
-                            <textarea name="commentaire[]">{{ commentaires[0].message }}</textarea>
-                        </div>
-                        <div class="col s6">
-                            <label>Bilan:</label>
-                            <textarea name="commentaire[]">{{ commentaires[1].message }}</textarea>
-                        </div>
+                    <div class="col s6">
+                        <H1 style="font-size: 40px"><I>Commentaire :</I></H1>
+                        <textarea name="commentaire[]">{{ commentaires[0].message }}</textarea>
+                    </div>
+                    <div class="col s6">
+                        <H1 style="font-size: 40px"><I>Bilan :</I></H1>
+                        <textarea name="commentaire[]">{{ commentaires[1].message }}</textarea>
+                    </div>
                 {% endif %}
 
         </div>

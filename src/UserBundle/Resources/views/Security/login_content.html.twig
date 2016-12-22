@@ -24,11 +24,9 @@
         <input type="password" id="password" name="_password" required="required" />
     </div>
 </div>
-
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
             <input class="btn btn-default edit_admin" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+        <div class="row"></div>
+        <a href="{{ path('fos_user_registration_register') }}">Pas encore inscrit ?</a>
         </form>
     </div>
 </div>

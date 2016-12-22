@@ -44,7 +44,7 @@ class LangageController extends Controller
             $em->persist($langage);
             $em->flush();
 
-            return $this->redirectToRoute('langage_show', array('id' => $langage->getId()));
+            return $this->redirectToRoute('langage_index', array('id' => $langage->getId()));
         }
 
         return $this->render('FormationBundle:langage:new.html.twig', array(

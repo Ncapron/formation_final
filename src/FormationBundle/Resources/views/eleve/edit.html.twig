@@ -69,18 +69,21 @@
                             {{ form_label(edit_form.etude) }}
                             {{ form_errors(edit_form.etude) }}
                         </div>
-                        <div class="input-field col s6">
+                    <div class="row">
+                        <div class="input-field col s12">
                             {{ form_widget(edit_form.module) }}
                             {{ form_label(edit_form.module) }}
                             {{ form_errors(edit_form.module) }}
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
+                                <p>CV :</p>
                                 {{ form_widget(edit_form.filecv) }}
                                 {{ form_label(edit_form.filecv) }}
                                 {{ form_errors(edit_form.filecv) }}
                             </div>
                             <div class="input-field col s6">
+                                <p>CV actif solution :</p>
                                 {{ form_widget(edit_form.filecva) }}
                                 {{ form_label(edit_form.filecva) }}
                                 {{ form_errors(edit_form.filecva) }}
@@ -95,6 +98,7 @@
                                 {{ form_errors(edit_form.archive) }}
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

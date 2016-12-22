@@ -62,33 +62,36 @@
                         {{ form_widget(form.datenaissance) }}
                         {{ form_errors(form.datenaissance) }}
                     </div>
-                    <div class="row-hidden">
-                        <div class="input-field col s12">
-                            {{ form_widget(form.archive) }}
-                            {{ form_errors(form.archive) }}
-                        </div>
-                    </div>
+
                     <div class="input-field col s6">
                         {{ form_widget(form.etude) }}
                         {{ form_label(form.etude) }}
                         {{ form_errors(form.etude) }}
                     </div>
                     <div class="row-hidden">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
                             {{ form_widget(form.module) }}
                             {{ form_label(form.module) }}
                             {{ form_errors(form.module) }}
                         </div>
+                        <div class="row-hidden">
+                            <div class="input-field col s12">
+                                {{ form_widget(form.archive) }}
+                                {{ form_errors(form.archive) }}
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
+                            <p>CV :</p>
                             {{ form_label(form.filecv) }}
                             {{ form_widget(form.filecv) }}
                             {{ form_errors(form.filecv) }}
                         </div>
                         <div class="input-field col s6">
-                            {{ form_widget(form.filecva) }}
+                            <p>CV actif solution :</p>
                             {{ form_label(form.filecva) }}
+                            {{ form_widget(form.filecva) }}
                             {{ form_errors(form.filecva) }}
                         </div>
                     </div>
